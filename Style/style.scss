@@ -1,0 +1,153 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5em;
+  padding: 20px 0;
+  color: white;
+}
+
+section {
+  /*   background: linear-gradient(
+    0deg,
+    rgba(171, 196, 255, 1) 0%,
+    rgba(241, 241, 241, 1) 50%,
+    rgba(237, 242, 251, 1) 100%
+  ); */
+  &:before {
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background: url(/Images/clouds.jpg);
+    background-size: cover;
+    height: 100vh;
+    filter: blur(15px);
+    transform: scale(1.1);
+  }
+  article {
+    background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
+      url(/Images/clouds-3.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    max-width: 70%;
+    height: 500px;
+    margin: 50px auto 0;
+    border-radius: 5px;
+    .main-weather {
+      display: inherit;
+      align-items: flex-end;
+      margin-left: 7%;
+      &_temp {
+        font-size: 4em;
+      }
+      &_loc {
+        display: flex;
+        flex-direction: column;
+        font-size: 1.3em;
+        margin: 0;
+        p:first-child {
+          font-size: 2em;
+          margin: 0;
+        }
+      }
+      &_cond {
+        font-size: 2em;
+        display: flex;
+        flex-direction: column;
+        p:first-child {
+          font-size: 1em;
+          margin: 0;
+        }
+      }
+      p {
+        padding: 0 25px;
+        text-align: center;
+        margin: 0 0 40px;
+        color: white;
+      }
+    }
+    .weather-info-container {
+      width: 40%;
+      backdrop-filter: blur(10px);
+      border-radius: 0 5px 5px 0;
+      .city-research {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 20px;
+        &::after {
+          content: "";
+          width: 60%;
+          border-bottom: solid 1.5px white;
+          position: absolute;
+          left: 5%;
+          top: 13%;
+          z-index: 1;
+          border-radius: 10px;
+        }
+        input {
+          display: flex;
+          border: none;
+          outline: none;
+          padding: 10px;
+          border-radius: 5px;
+          font-size: 1.2em;
+          color: white;
+          background-color: transparent;
+          &::placeholder {
+            color: #f1f1f1;
+          }
+        }
+        button {
+          border: none;
+          color: white;
+          background-color: lightblue;
+          padding: 10px 15px;
+          border-radius: 0 5px 5px 0;
+          font-size: 1.1em;
+          cursor: pointer;
+          &:hover {
+            opacity: 0.9;
+          }
+        }
+      }
+      h3 {
+        text-align: center;
+        font-size: 1.6em;
+        color: white;
+        margin-top: 60px;
+        &::after {
+          content: "";
+          width: 30%;
+          border-bottom: solid 1.5px white;
+          position: absolute;
+          left: 35%;
+          top: 33%;
+          z-index: 1;
+          border-radius: 10px;
+        }
+      }
+      .weather-info {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 20px;
+        font-size: 1.3em;
+        color: white;
+        p:last-child {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

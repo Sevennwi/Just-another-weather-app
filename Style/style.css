@@ -1,0 +1,219 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5em;
+  padding: 20px 0;
+  color: white;
+}
+
+section {
+  /*   background: linear-gradient(
+    0deg,
+    rgba(171, 196, 255, 1) 0%,
+    rgba(241, 241, 241, 1) 50%,
+    rgba(237, 242, 251, 1) 100%
+  ); */
+}
+
+section:before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  background: url(/Images/clouds.jpg);
+  background-size: cover;
+  height: 100vh;
+  -webkit-filter: blur(15px);
+          filter: blur(15px);
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+section article {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0.05))), url(/Images/clouds-3.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(/Images/clouds-3.jpg);
+  background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 70%;
+  height: 500px;
+  margin: 50px auto 0;
+  border-radius: 5px;
+}
+
+section article .main-weather {
+  display: inherit;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-left: 7%;
+}
+
+section article .main-weather_temp {
+  font-size: 4em;
+}
+
+section article .main-weather_loc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 1.3em;
+  margin: 0;
+}
+
+section article .main-weather_loc p:first-child {
+  font-size: 2em;
+  margin: 0;
+}
+
+section article .main-weather_cond {
+  font-size: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+section article .main-weather_cond p:first-child {
+  font-size: 1em;
+  margin: 0;
+}
+
+section article .main-weather p {
+  padding: 0 25px;
+  text-align: center;
+  margin: 0 0 40px;
+  color: white;
+}
+
+section article .weather-info-container {
+  width: 40%;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border-radius: 0 5px 5px 0;
+}
+
+section article .weather-info-container .city-research {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 20px;
+}
+
+section article .weather-info-container .city-research::after {
+  content: "";
+  width: 60%;
+  border-bottom: solid 1.5px white;
+  position: absolute;
+  left: 5%;
+  top: 13%;
+  z-index: 1;
+  border-radius: 10px;
+}
+
+section article .weather-info-container .city-research input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1.2em;
+  color: white;
+  background-color: transparent;
+}
+
+section article .weather-info-container .city-research input::-webkit-input-placeholder {
+  color: #f1f1f1;
+}
+
+section article .weather-info-container .city-research input:-ms-input-placeholder {
+  color: #f1f1f1;
+}
+
+section article .weather-info-container .city-research input::-ms-input-placeholder {
+  color: #f1f1f1;
+}
+
+section article .weather-info-container .city-research input::placeholder {
+  color: #f1f1f1;
+}
+
+section article .weather-info-container .city-research button {
+  border: none;
+  color: white;
+  background-color: lightblue;
+  padding: 10px 15px;
+  border-radius: 0 5px 5px 0;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+section article .weather-info-container .city-research button:hover {
+  opacity: 0.9;
+}
+
+section article .weather-info-container h3 {
+  text-align: center;
+  font-size: 1.6em;
+  color: white;
+  margin-top: 60px;
+}
+
+section article .weather-info-container h3::after {
+  content: "";
+  width: 30%;
+  border-bottom: solid 1.5px white;
+  position: absolute;
+  left: 35%;
+  top: 33%;
+  z-index: 1;
+  border-radius: 10px;
+}
+
+section article .weather-info-container .weather-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px 20px;
+  font-size: 1.3em;
+  color: white;
+}
+
+section article .weather-info-container .weather-info p:last-child {
+  font-weight: bold;
+}
+/*# sourceMappingURL=style.css.map */
