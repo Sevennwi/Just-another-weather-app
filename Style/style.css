@@ -5,6 +5,40 @@
           box-sizing: border-box;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  display: none;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: lightblue;
+  height: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  opacity: 0.8;
+}
+
+/* Change Autocomplete styles */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #fff;
+  font-size: 1.3em;
+}
+
 body {
   margin: 0;
 }
@@ -16,15 +50,6 @@ h1 {
   color: white;
 }
 
-section {
-  /*   background: linear-gradient(
-    0deg,
-    rgba(171, 196, 255, 1) 0%,
-    rgba(241, 241, 241, 1) 50%,
-    rgba(237, 242, 251, 1) 100%
-  ); */
-}
-
 section:before {
   content: "";
   position: fixed;
@@ -32,17 +57,20 @@ section:before {
   right: 0;
   z-index: -1;
   background: url(/Images/clouds.jpg);
+  /*     background: url(/Images/Rain.jpg); */
   background-size: cover;
   height: 100vh;
-  -webkit-filter: blur(15px);
-          filter: blur(15px);
+  -webkit-filter: blur(40px);
+          filter: blur(40px);
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
 
-section article {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0.05))), url(/Images/clouds-3.jpg);
-  background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(/Images/clouds-3.jpg);
+section .main-weather-container {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0.05))), url(/Images/clouds-3.jpg) center;
+  background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(/Images/clouds-3.jpg) center;
+  /*     background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
+      url(/Images/Rain-2.jpg) center; */
   background-size: cover;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -51,24 +79,24 @@ section article {
       -ms-flex-pack: justify;
           justify-content: space-between;
   max-width: 70%;
-  height: 500px;
-  margin: 50px auto 0;
+  height: 550px;
+  margin: 70px auto 0;
   border-radius: 5px;
 }
 
-section article .main-weather {
+section .main-weather-container .main-weather {
   display: inherit;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  margin-left: 7%;
+  margin: 0 auto;
 }
 
-section article .main-weather_temp {
+section .main-weather-container .main-weather_temp {
   font-size: 4em;
 }
 
-section article .main-weather_loc {
+section .main-weather-container .main-weather_loc {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -80,12 +108,12 @@ section article .main-weather_loc {
   margin: 0;
 }
 
-section article .main-weather_loc p:first-child {
+section .main-weather-container .main-weather_loc p:first-child {
   font-size: 2em;
   margin: 0;
 }
 
-section article .main-weather_cond {
+section .main-weather-container .main-weather_cond {
   font-size: 2em;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -96,26 +124,28 @@ section article .main-weather_cond {
           flex-direction: column;
 }
 
-section article .main-weather_cond p:first-child {
+section .main-weather-container .main-weather_cond p:first-child {
   font-size: 1em;
   margin: 0;
 }
 
-section article .main-weather p {
+section .main-weather-container .main-weather p {
   padding: 0 25px;
   text-align: center;
   margin: 0 0 40px;
   color: white;
 }
 
-section article .weather-info-container {
-  width: 40%;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+section .main-weather-container .weather-info-container {
+  max-width: 40%;
+  -webkit-backdrop-filter: blur(30px);
+          backdrop-filter: blur(30px);
   border-radius: 0 5px 5px 0;
+  overflow-y: scroll;
+  cursor: s-resize;
 }
 
-section article .weather-info-container .city-research {
+section .main-weather-container .weather-info-container .city-research {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -126,82 +156,82 @@ section article .weather-info-container .city-research {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin: 20px;
 }
 
-section article .weather-info-container .city-research::after {
+section .main-weather-container .weather-info-container .city-research::after {
   content: "";
   width: 60%;
   border-bottom: solid 1.5px white;
   position: absolute;
-  left: 5%;
-  top: 13%;
+  left: 4%;
+  top: 11%;
   z-index: 1;
   border-radius: 10px;
 }
 
-section article .weather-info-container .city-research input {
+section .main-weather-container .weather-info-container .city-research input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   border: none;
   outline: none;
-  padding: 10px;
+  padding-left: 20px;
+  padding-top: 10px;
   border-radius: 5px;
   font-size: 1.2em;
   color: white;
   background-color: transparent;
 }
 
-section article .weather-info-container .city-research input::-webkit-input-placeholder {
+section .main-weather-container .weather-info-container .city-research input::-webkit-input-placeholder {
   color: #f1f1f1;
 }
 
-section article .weather-info-container .city-research input:-ms-input-placeholder {
+section .main-weather-container .weather-info-container .city-research input:-ms-input-placeholder {
   color: #f1f1f1;
 }
 
-section article .weather-info-container .city-research input::-ms-input-placeholder {
+section .main-weather-container .weather-info-container .city-research input::-ms-input-placeholder {
   color: #f1f1f1;
 }
 
-section article .weather-info-container .city-research input::placeholder {
+section .main-weather-container .weather-info-container .city-research input::placeholder {
   color: #f1f1f1;
 }
 
-section article .weather-info-container .city-research button {
+section .main-weather-container .weather-info-container .city-research button {
   border: none;
   color: white;
   background-color: lightblue;
-  padding: 10px 15px;
-  border-radius: 0 5px 5px 0;
+  padding: 20px 25px;
+  border-radius: 0 5px 0 0;
   font-size: 1.1em;
   cursor: pointer;
 }
 
-section article .weather-info-container .city-research button:hover {
+section .main-weather-container .weather-info-container .city-research button:hover {
   opacity: 0.9;
 }
 
-section article .weather-info-container h3 {
+section .main-weather-container .weather-info-container h3 {
   text-align: center;
   font-size: 1.6em;
   color: white;
   margin-top: 60px;
 }
 
-section article .weather-info-container h3::after {
+section .main-weather-container .weather-info-container h3::after {
   content: "";
   width: 30%;
   border-bottom: solid 1.5px white;
   position: absolute;
   left: 35%;
-  top: 33%;
+  top: 30%;
   z-index: 1;
   border-radius: 10px;
 }
 
-section article .weather-info-container .weather-info {
+section .main-weather-container .weather-info-container .weather-info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -213,7 +243,30 @@ section article .weather-info-container .weather-info {
   color: white;
 }
 
-section article .weather-info-container .weather-info p:last-child {
+section .main-weather-container .weather-info-container .weather-info p:last-child {
   font-weight: bold;
+}
+
+section .main-weather-container .weather-info-container .weather-info::after {
+  content: "";
+  width: 70%;
+  border-bottom: solid 1.5px white;
+  position: absolute;
+  left: 15%;
+  top: 80%;
+  z-index: 1;
+  border-radius: 10px;
+}
+
+section .main-weather-container .weather-info-container .weather-forecast_quarter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px 20px;
+  font-size: 1.3em;
+  color: white;
 }
 /*# sourceMappingURL=style.css.map */
