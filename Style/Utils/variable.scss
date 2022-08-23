@@ -1,0 +1,59 @@
+$primary-color: black;
+$secondary-color: white;
+$arrow-color: rgb(173, 173, 173);
+
+
+@mixin ordi {
+  @media all and (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media all and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media all and (max-width: 576px) {
+    @content;
+  }
+}
+
+@mixin mobileMedium {
+  @media all and (max-width: 400px) {
+    @content;
+  }
+}
+
+@mixin mobileSmall {
+  @media all and (max-width: 350px) {
+    @content;
+  }
+}
+
+// Animation
+
+@keyframes arrow {
+  0% {
+    border-right: 2px solid $arrow-color;
+    border-bottom: 2px solid $arrow-color;
+  }
+  50% {
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+  }
+  100% {
+    border-right: 2px solid $arrow-color;
+    border-bottom: 2px solid $arrow-color;
+  }
+}
+
+// Pour débuger quand ça sort de l'écran
+
+/*  * {
+  background: #000 !important;
+  color: #0f0 !important;
+  outline: solid #f00 1px !important;
+} */
