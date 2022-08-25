@@ -10,7 +10,7 @@ $arrow-color: rgb(173, 173, 173);
 }
 
 @mixin tablet {
-  @media all and (max-width: 768px) {
+  @media all and (max-width: 900px) {
     @content;
   }
 }

@@ -44,18 +44,18 @@
 ::-webkit-scrollbar {
   width: 5px;
   height: 8px;
-  display: none;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: white;
+  border-radius: 8px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: lightblue;
-  height: 5px;
+  border-radius: 8px;
 }
 
 /* Handle on hover */
@@ -83,6 +83,13 @@ h1 {
   font-size: 2.5em;
   padding: 20px 0;
   color: white;
+}
+
+@media all and (max-width: 576px) {
+  h1 {
+    font-size: 2em;
+    padding: 20px 20px;
+  }
 }
 
 section:before {
@@ -119,6 +126,30 @@ section .main-weather-container {
   border-radius: 5px;
 }
 
+@media all and (max-width: 1200px) {
+  section .main-weather-container {
+    max-width: 80%;
+  }
+}
+
+@media all and (max-width: 900px) {
+  section .main-weather-container {
+    max-width: 90%;
+  }
+}
+
+@media all and (max-width: 576px) {
+  section .main-weather-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 100%;
+    max-width: 85%;
+    margin: 20px auto 0;
+  }
+}
+
 section .main-weather-container .main-weather {
   display: inherit;
   -webkit-box-align: end;
@@ -127,8 +158,41 @@ section .main-weather-container .main-weather {
   margin: 0 auto;
 }
 
+@media all and (max-width: 900px) {
+  section .main-weather-container .main-weather {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media all and (max-width: 576px) {
+  section .main-weather-container .main-weather {
+    padding: 50px 0;
+  }
+}
+
 section .main-weather-container .main-weather_temp {
   font-size: 4em;
+}
+
+@media all and (max-width: 1200px) {
+  section .main-weather-container .main-weather_temp {
+    font-size: 3em;
+  }
+}
+
+@media all and (max-width: 576px) {
+  section .main-weather-container .main-weather_temp {
+    font-size: 2.8em;
+  }
 }
 
 section .main-weather-container .main-weather_loc {
@@ -143,9 +207,21 @@ section .main-weather-container .main-weather_loc {
   margin: 0;
 }
 
+@media all and (max-width: 1200px) {
+  section .main-weather-container .main-weather_loc {
+    font-size: 1.2em;
+  }
+}
+
 section .main-weather-container .main-weather_loc p:first-child {
   font-size: 2em;
   margin: 0;
+}
+
+@media all and (max-width: 1200px) {
+  section .main-weather-container .main-weather_loc p:first-child {
+    font-size: 1.8em;
+  }
 }
 
 section .main-weather-container .main-weather_cond {
@@ -159,9 +235,21 @@ section .main-weather-container .main-weather_cond {
           flex-direction: column;
 }
 
+@media all and (max-width: 576px) {
+  section .main-weather-container .main-weather_cond {
+    font-size: 1.8em;
+  }
+}
+
 section .main-weather-container .main-weather_cond p:first-child {
   font-size: 1em;
   margin: 0;
+}
+
+@media all and (max-width: 576px) {
+  section .main-weather-container .main-weather_cond p:last-child {
+    margin: 0;
+  }
 }
 
 section .main-weather-container .main-weather p {
@@ -171,13 +259,35 @@ section .main-weather-container .main-weather p {
   color: white;
 }
 
+@media all and (max-width: 576px) {
+  section .main-weather-container .main-weather p {
+    margin: 0 0 50px;
+  }
+}
+
 section .main-weather-container .weather-info-container {
   max-width: 40%;
   -webkit-backdrop-filter: blur(30px);
           backdrop-filter: blur(30px);
   border-radius: 0 5px 5px 0;
   overflow-y: scroll;
-  cursor: s-resize;
+}
+
+section .main-weather-container .weather-info-container::-webkit-scrollbar {
+  display: none;
+}
+
+@media all and (max-width: 900px) {
+  section .main-weather-container .weather-info-container {
+    max-width: 50%;
+  }
+}
+
+@media all and (max-width: 576px) {
+  section .main-weather-container .weather-info-container {
+    max-width: 100%;
+    border-radius: 5px;
+  }
 }
 
 section .main-weather-container .weather-info-container .city-research {
@@ -204,12 +314,19 @@ section .main-weather-container .weather-info-container .city-research::after {
   border-radius: 10px;
 }
 
+@media all and (max-width: 576px) {
+  section .main-weather-container .weather-info-container .city-research::after {
+    top: 9%;
+  }
+}
+
 section .main-weather-container .weather-info-container .city-research input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   border: none;
   outline: none;
+  max-width: 50%;
   padding-left: 20px;
   padding-top: 10px;
   border-radius: 5px;
@@ -266,6 +383,12 @@ section .main-weather-container .weather-info-container h3::after {
   border-radius: 10px;
 }
 
+@media all and (max-width: 576px) {
+  section .main-weather-container .weather-info-container h3::after {
+    top: 26%;
+  }
+}
+
 section .main-weather-container .weather-info-container p {
   margin: 10px 0;
 }
@@ -282,6 +405,12 @@ section .main-weather-container .weather-info-container .weather-info {
   color: white;
 }
 
+@media all and (max-width: 900px) {
+  section .main-weather-container .weather-info-container .weather-info {
+    font-size: 1.2em;
+  }
+}
+
 section .main-weather-container .weather-info-container .weather-info p:last-child {
   font-weight: bold;
 }
@@ -295,6 +424,12 @@ section .main-weather-container .weather-info-container .weather-info::after {
   top: 69%;
   z-index: 1;
   border-radius: 10px;
+}
+
+@media all and (max-width: 576px) {
+  section .main-weather-container .weather-info-container .weather-info::after {
+    top: 58%;
+  }
 }
 
 section .main-weather-container .weather-info-container .weather-forecast {
@@ -330,6 +465,12 @@ section .main-weather-container .weather-info-container .weather-forecast .group
   color: #f2f2f2;
 }
 
+@media all and (max-width: 576px) {
+  section .main-weather-container .weather-info-container .weather-forecast .group-arrow {
+    display: none;
+  }
+}
+
 section .main-weather-container .weather-info-container .weather-forecast .group-arrow .arrows {
   -webkit-animation: arrow 5s linear infinite alternate;
           animation: arrow 5s linear infinite alternate;
@@ -355,7 +496,8 @@ section .main-weather-container .weather-info-container .weather-forecast .group
 }
 
 section .forecast-multiple-day-container-all {
-  margin: 20px auto;
+  margin: 150px 100px;
+  padding-bottom: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -363,24 +505,58 @@ section .forecast-multiple-day-container-all {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  overflow-x: scroll;
+  gap: 60px 40px;
+  color: white;
+}
+
+@media all and (max-width: 900px) {
+  section .forecast-multiple-day-container-all {
+    margin: 150px 40px;
+  }
+}
+
+@media all and (max-width: 576px) {
+  section .forecast-multiple-day-container-all {
+    margin: 150px 25px;
+    gap: 80px 40px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media all and (max-width: 400px) {
+  section .forecast-multiple-day-container-all {
+    margin: 150px 5px;
+  }
 }
 
 section .forecast-multiple-day-container-all .forecast-multiple-day-container {
-  width: 30%;
   display: inherit;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: lightgray;
+  border-radius: 5px;
+}
+
+section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main {
+  border-radius: 5px 5px 0 0;
+  -webkit-backdrop-filter: blur(200px);
+          backdrop-filter: blur(200px);
 }
 
 section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main h3 {
   text-align: center;
+  font-size: 1.4em;
 }
 
 section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main .forecast-multiple-day-main-info {
@@ -394,6 +570,19 @@ section .forecast-multiple-day-container-all .forecast-multiple-day-container .f
           align-items: center;
 }
 
+section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main .forecast-multiple-day-main-info_temp {
+  font-size: 1.8em;
+}
+
+section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main .forecast-multiple-day-main-info_weather {
+  font-size: 1.3em;
+  text-align: center;
+}
+
+section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main .forecast-multiple-day-main-info_weather span {
+  font-size: 1.8em;
+}
+
 section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main .forecast-multiple-day-main-info .forecast-multiple-day-conditions {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -401,13 +590,44 @@ section .forecast-multiple-day-container-all .forecast-multiple-day-container .f
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  gap: 0 30px;
+  font-size: 1.2em;
 }
 
 section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-second {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-backdrop-filter: blur(200px);
+          backdrop-filter: blur(200px);
+  border-top: 3px solid white;
+  border-radius: 0 0 5px 5px;
+}
+
+section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-second_div {
+  text-align: center;
+  font-size: 1.3em;
+  margin: auto 10px;
+}
+
+section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-second_div span {
+  font-size: 1.6em;
+}
+
+footer .signature {
+  text-align: center;
+  color: white;
+  font-size: 1.1em;
+}
+
+footer .signature a {
+  text-decoration: none;
+  color: lightblue;
+}
+
+footer .signature a:hover {
+  color: white;
+  -webkit-transition: color 0.1s;
+  transition: color 0.1s;
 }
 /*# sourceMappingURL=style.css.map */
