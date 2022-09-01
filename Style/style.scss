@@ -8,7 +8,7 @@
 
 /* width */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 0px;
   height: 8px;
 }
 
@@ -54,6 +54,12 @@ h1 {
   }
 }
 
+.geolocation-denied {
+  text-align: center;
+  color: white;
+  font-size: 1.3em;
+}
+
 section {
   &:before {
     content: "";
@@ -76,7 +82,7 @@ section {
     background-size: cover;
     display: flex;
     justify-content: space-between;
-    max-width: 70%;
+    max-width: 75%;
     height: 550px;
     margin: 70px auto 0;
     border-radius: 5px;
@@ -89,8 +95,10 @@ section {
     @include mobile {
       flex-direction: column;
       height: 100%;
-      max-width: 85%;
       margin: 20px auto 0;
+    }
+    @include mobileMedium {
+      max-width: 95%;
     }
     .main-weather {
       display: inherit;
@@ -105,32 +113,36 @@ section {
         padding: 50px 0;
       }
       &_temp {
-        font-size: 4em;
-        @include ordi {
-          font-size: 3em;
-        }
-        @include mobile {
-          font-size: 2.8em;
+        font-size: 1.5em;
+        p:first-child {
+          margin-bottom: 10px;
+          font-size: 1.8em;
+          @include ordi {
+            font-size: 2.3em;
+          }
+          @include mobile {
+            font-size: 2.5em;
+          }
         }
       }
       &_loc {
         display: flex;
         flex-direction: column;
-        font-size: 1.3em;
+        font-size: 1.5em;
         margin: 0;
         @include ordi {
           font-size: 1.2em;
         }
         p:first-child {
-          font-size: 2em;
-          margin: 0;
+          font-size: 1.8em;
+          margin: 10px;
           @include ordi {
             font-size: 1.8em;
           }
         }
       }
       &_cond {
-        font-size: 2em;
+        font-size: 1.6em;
         display: flex;
         flex-direction: column;
         @include mobile {
@@ -138,7 +150,10 @@ section {
         }
         p:first-child {
           font-size: 1em;
-          margin: 0;
+          margin: -20px;
+        }
+        p:last-child {
+          text-transform: capitalize;
         }
         @include mobile {
           p:last-child {
@@ -151,6 +166,7 @@ section {
         text-align: center;
         margin: 0 0 40px;
         color: white;
+        line-height: 1.2em;
         @include mobile {
           margin: 0 0 50px;
         }
@@ -263,6 +279,12 @@ section {
             top: 58%;
           }
         }
+        span {
+          padding-right: 15px;
+          @include mobile {
+            padding-right: 20px;
+          }
+        }
       }
       .weather-forecast {
         margin-top: 20px;
@@ -272,11 +294,20 @@ section {
           padding: 10px 20px;
           font-size: 1.3em;
           color: white;
+          &_icon {
+            padding-right: 15px;
+            @include mobile {
+              padding-right: 20px;
+            }
+          }
+          &_temp {
+            display: flex;
+          }
         }
         .group-arrow {
           position: sticky;
           bottom: 4%;
-          left: 50%;
+          left: 52%;
           display: flex;
           flex-direction: column;
           width: 0;
@@ -307,7 +338,8 @@ section {
     }
   }
   .forecast-multiple-day-container-all {
-    margin: 150px 100px;
+    margin: 150px auto;
+    max-width: 75%;
     padding-bottom: 20px;
     display: flex;
     flex-direction: row;
@@ -316,17 +348,22 @@ section {
     overflow-x: scroll;
     gap: 60px 40px;
     color: white;
+    @include ordi {
+      max-width: 80%;
+    }
     @include tablet {
-      margin: 150px 40px;
+      max-width: 90%;
     }
     @include mobile {
-      margin: 150px 25px;
-      gap: 80px 40px;
+      gap: 80px 0;
       flex-wrap: wrap;
       justify-content: center;
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
     @include mobileMedium {
-      margin: 150px 5px;
+      max-width: 95%;
     }
     .forecast-multiple-day-container {
       display: inherit;
@@ -345,6 +382,9 @@ section {
           align-items: center;
           &_temp {
             font-size: 1.8em;
+            p:last-child {
+              font-size: 0.6em;
+            }
           }
           &_weather {
             font-size: 1.3em;
@@ -369,7 +409,14 @@ section {
         &_div {
           text-align: center;
           font-size: 1.3em;
-          margin: auto 10px;
+          margin: auto 15px;
+          @include mobileMedium {
+            margin: auto 10px;
+          }
+          @include mobileSmall {
+            margin: auto 5px;
+            font-size: 1.2em;
+          }
           span {
             font-size: 1.6em;
           }

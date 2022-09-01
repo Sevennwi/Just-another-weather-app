@@ -42,7 +42,7 @@
 
 /* width */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 0px;
   height: 8px;
 }
 
@@ -92,6 +92,12 @@ h1 {
   }
 }
 
+.geolocation-denied {
+  text-align: center;
+  color: white;
+  font-size: 1.3em;
+}
+
 section:before {
   content: "";
   position: fixed;
@@ -120,7 +126,7 @@ section .main-weather-container {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  max-width: 70%;
+  max-width: 75%;
   height: 550px;
   margin: 70px auto 0;
   border-radius: 5px;
@@ -145,8 +151,13 @@ section .main-weather-container {
         -ms-flex-direction: column;
             flex-direction: column;
     height: 100%;
-    max-width: 85%;
     margin: 20px auto 0;
+  }
+}
+
+@media all and (max-width: 400px) {
+  section .main-weather-container {
+    max-width: 95%;
   }
 }
 
@@ -180,18 +191,23 @@ section .main-weather-container .main-weather {
 }
 
 section .main-weather-container .main-weather_temp {
-  font-size: 4em;
+  font-size: 1.5em;
+}
+
+section .main-weather-container .main-weather_temp p:first-child {
+  margin-bottom: 10px;
+  font-size: 1.8em;
 }
 
 @media all and (max-width: 1200px) {
-  section .main-weather-container .main-weather_temp {
-    font-size: 3em;
+  section .main-weather-container .main-weather_temp p:first-child {
+    font-size: 2.3em;
   }
 }
 
 @media all and (max-width: 576px) {
-  section .main-weather-container .main-weather_temp {
-    font-size: 2.8em;
+  section .main-weather-container .main-weather_temp p:first-child {
+    font-size: 2.5em;
   }
 }
 
@@ -203,7 +219,7 @@ section .main-weather-container .main-weather_loc {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  font-size: 1.3em;
+  font-size: 1.5em;
   margin: 0;
 }
 
@@ -214,8 +230,8 @@ section .main-weather-container .main-weather_loc {
 }
 
 section .main-weather-container .main-weather_loc p:first-child {
-  font-size: 2em;
-  margin: 0;
+  font-size: 1.8em;
+  margin: 10px;
 }
 
 @media all and (max-width: 1200px) {
@@ -225,7 +241,7 @@ section .main-weather-container .main-weather_loc p:first-child {
 }
 
 section .main-weather-container .main-weather_cond {
-  font-size: 2em;
+  font-size: 1.6em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -243,7 +259,11 @@ section .main-weather-container .main-weather_cond {
 
 section .main-weather-container .main-weather_cond p:first-child {
   font-size: 1em;
-  margin: 0;
+  margin: -20px;
+}
+
+section .main-weather-container .main-weather_cond p:last-child {
+  text-transform: capitalize;
 }
 
 @media all and (max-width: 576px) {
@@ -257,6 +277,7 @@ section .main-weather-container .main-weather p {
   text-align: center;
   margin: 0 0 40px;
   color: white;
+  line-height: 1.2em;
 }
 
 @media all and (max-width: 576px) {
@@ -432,6 +453,16 @@ section .main-weather-container .weather-info-container .weather-info::after {
   }
 }
 
+section .main-weather-container .weather-info-container .weather-info span {
+  padding-right: 15px;
+}
+
+@media all and (max-width: 576px) {
+  section .main-weather-container .weather-info-container .weather-info span {
+    padding-right: 20px;
+  }
+}
+
 section .main-weather-container .weather-info-container .weather-forecast {
   margin-top: 20px;
 }
@@ -448,11 +479,27 @@ section .main-weather-container .weather-info-container .weather-forecast_quarte
   color: white;
 }
 
+section .main-weather-container .weather-info-container .weather-forecast_quarter_icon {
+  padding-right: 15px;
+}
+
+@media all and (max-width: 576px) {
+  section .main-weather-container .weather-info-container .weather-forecast_quarter_icon {
+    padding-right: 20px;
+  }
+}
+
+section .main-weather-container .weather-info-container .weather-forecast_quarter_temp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 section .main-weather-container .weather-info-container .weather-forecast .group-arrow {
   position: -webkit-sticky;
   position: sticky;
   bottom: 4%;
-  left: 50%;
+  left: 52%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -496,7 +543,8 @@ section .main-weather-container .weather-info-container .weather-forecast .group
 }
 
 section .forecast-multiple-day-container-all {
-  margin: 150px 100px;
+  margin: 150px auto;
+  max-width: 75%;
   padding-bottom: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -515,27 +563,35 @@ section .forecast-multiple-day-container-all {
   color: white;
 }
 
+@media all and (max-width: 1200px) {
+  section .forecast-multiple-day-container-all {
+    max-width: 80%;
+  }
+}
+
 @media all and (max-width: 900px) {
   section .forecast-multiple-day-container-all {
-    margin: 150px 40px;
+    max-width: 90%;
   }
 }
 
 @media all and (max-width: 576px) {
   section .forecast-multiple-day-container-all {
-    margin: 150px 25px;
-    gap: 80px 40px;
+    gap: 80px 0;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
   }
+  section .forecast-multiple-day-container-all::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @media all and (max-width: 400px) {
   section .forecast-multiple-day-container-all {
-    margin: 150px 5px;
+    max-width: 95%;
   }
 }
 
@@ -574,6 +630,10 @@ section .forecast-multiple-day-container-all .forecast-multiple-day-container .f
   font-size: 1.8em;
 }
 
+section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main .forecast-multiple-day-main-info_temp p:last-child {
+  font-size: 0.6em;
+}
+
 section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main .forecast-multiple-day-main-info_weather {
   font-size: 1.3em;
   text-align: center;
@@ -607,7 +667,20 @@ section .forecast-multiple-day-container-all .forecast-multiple-day-container .f
 section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-second_div {
   text-align: center;
   font-size: 1.3em;
-  margin: auto 10px;
+  margin: auto 15px;
+}
+
+@media all and (max-width: 400px) {
+  section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-second_div {
+    margin: auto 10px;
+  }
+}
+
+@media all and (max-width: 350px) {
+  section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-second_div {
+    margin: auto 5px;
+    font-size: 1.2em;
+  }
 }
 
 section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-second_div span {

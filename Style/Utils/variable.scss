@@ -2,7 +2,6 @@ $primary-color: black;
 $secondary-color: white;
 $arrow-color: rgb(173, 173, 173);
 
-
 @mixin ordi {
   @media all and (max-width: 1200px) {
     @content;
