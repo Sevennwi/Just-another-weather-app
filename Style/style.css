@@ -628,15 +628,23 @@ section .forecast-multiple-day-container-all .forecast-multiple-day-container .f
 
 section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main .forecast-multiple-day-main-info_temp {
   font-size: 1.8em;
+  margin-top: 25px;
 }
 
 section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main .forecast-multiple-day-main-info_temp p:last-child {
-  font-size: 0.6em;
+  font-size: 0.7em;
+  text-align: center;
+  line-height: 1.2em;
+  margin-top: 35px;
 }
 
 section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main .forecast-multiple-day-main-info_weather {
   font-size: 1.3em;
   text-align: center;
+}
+
+section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main .forecast-multiple-day-main-info_weather p:first-child {
+  margin: 15px 0;
 }
 
 section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main .forecast-multiple-day-main-info_weather span {
@@ -668,6 +676,19 @@ section .forecast-multiple-day-container-all .forecast-multiple-day-container .f
   text-align: center;
   font-size: 1.3em;
   margin: auto 15px;
+}
+
+section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-second_div_feels {
+  font-size: 0.8em;
+}
+
+section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-second_div p:last-child {
+  margin: 0 auto;
+}
+
+section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-second_div p:last-child img {
+  width: 80px;
+  margin-top: -15px;
 }
 
 @media all and (max-width: 400px) {

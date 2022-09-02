@@ -382,13 +382,20 @@ section {
           align-items: center;
           &_temp {
             font-size: 1.8em;
+            margin-top: 25px;
             p:last-child {
-              font-size: 0.6em;
+              font-size: 0.7em;
+              text-align: center;
+              line-height: 1.2em;
+              margin-top: 35px;
             }
           }
           &_weather {
             font-size: 1.3em;
             text-align: center;
+            p:first-child {
+              margin: 15px 0;
+            }
             span {
               font-size: 1.8em;
             }
@@ -410,6 +417,16 @@ section {
           text-align: center;
           font-size: 1.3em;
           margin: auto 15px;
+          &_feels {
+            font-size: 0.8em;
+          }
+          p:last-child {
+            margin: 0 auto;
+            img {
+              width: 80px;
+              margin-top: -15px;
+            }
+          }
           @include mobileMedium {
             margin: auto 10px;
           }

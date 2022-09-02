@@ -39,7 +39,7 @@ date = new Intl.DateTimeFormat("en-GB", {
   .replace(",", " ");
 currentDate.innerText = date;
 
-// get date 1rst day
+// get date 5 day
 
 let forecastDateArray = [];
 
@@ -56,16 +56,13 @@ for (let i = 1; i < 6; i++) {
   forecastDateArray.push(forecastDate);
 }
 
-console.log(forecastDateArray);
-//  firstDayDate.innerText = firstDay;
-
 // Get Current Weather
 
 function getCurrentWeather() {
   let userLat = localStorage.getItem("user-lat");
   let userLong = localStorage.getItem("user-long");
   fetch(
-    `https://api.openweathermap.org/data/3.0/onecall?lat=${userLat}&lon=${userLong}&exclude=minutely&appid=${APIKey}&units=metric`
+    `https://api.openweathermap.org/data/3.0/onecall?lat=${userLat}&lon=${userLong}&exclude=hourly,minutely&appid=${APIKey}&units=metric`
   )
     .then((response) => response.json())
     .then((data) => {
@@ -87,7 +84,6 @@ function getCurrentWeather() {
         )
           .then((response) => response.json())
           .then((location) => {
-            console.log(location);
             userLocation.innerText = location[0].name;
           })
           .catch((error) => {
@@ -146,7 +142,7 @@ function getCurrentWeather() {
               <div class="forecast-multiple-day-main-info">
                 <div class="forecast-multiple-day-main-info_temp">
                   <p>${Math.trunc(day.temp.day)}°C</p>
-                  <p>Feels: ${Math.trunc(day.feels_like.day)}°C</p>
+                  <p>Feels:<br>${Math.trunc(day.feels_like.day)}°C</p>
                 </div>
                 <div class="forecast-multiple-day-main-info_weather">
                   <p><img alt="Weather-icon" src="http://openweathermap.org/img/wn/${
@@ -173,31 +169,47 @@ function getCurrentWeather() {
             <div class="forecast-multiple-day-second">
               <div class="forecast-multiple-day-second_div">
                 <p>Morning</p>
-                <p>16°</p>
-                <p class"morningIcon">
-                  <span><i class="fa-solid fa-cloud"></i></span>
-                </p>
+                <p>${Math.trunc(day.temp.morn)}°C</p>
+                <p class="forecast-multiple-day-second_div_feels">Feels ${Math.trunc(
+                  day.feels_like.morn
+                )}°C</p>
+                <p><img alt="Weather-icon" class="forecast-morning-icon" src="http://openweathermap.org/img/wn/${day.weather[0].icon.replace(
+                  "n",
+                  "d"
+                )}@2x.png" /></p>
               </div>
               <div class="forecast-multiple-day-second_div">
                 <p>Afternoon</p>
-                <p>16°</p>
-                <p>
-                  <span><i class="fa-solid fa-cloud"></i></span>
-                </p>
+                <p>${Math.trunc(day.temp.day)}°C</p>
+                <p class="forecast-multiple-day-second_div_feels">Feels ${Math.trunc(
+                  day.feels_like.day
+                )}°C</p>
+                <p><img alt="Weather-icon" class="forecast-afternoon-icon" src="http://openweathermap.org/img/wn/${day.weather[0].icon.replace(
+                  "n",
+                  "d"
+                )}@2x.png" /></p>
               </div>
               <div class="forecast-multiple-day-second_div">
                 <p>Evening</p>
-                <p>16°</p>
-                <p>
-                  <span><i class="fa-solid fa-cloud"></i></span>
-                </p>
+                <p>${Math.trunc(day.temp.eve)}°C</p>
+                <p class="forecast-multiple-day-second_div_feels">Feels ${Math.trunc(
+                  day.feels_like.eve
+                )}°C</p>
+                <p><img alt="Weather-icon" class="forecast-evening-icon" src="http://openweathermap.org/img/wn/${day.weather[0].icon.replace(
+                  "d",
+                  "n"
+                )}@2x.png" /></p>
               </div>
               <div class="forecast-multiple-day-second_div">
                 <p>Night</p>
-                <p>16°</p>
-                <p>
-                  <span><i class="fa-solid fa-cloud"></i></span>
-                </p>
+                <p>${Math.trunc(day.temp.night)}°C</p>
+                <p class="forecast-multiple-day-second_div_feels">Feels ${Math.trunc(
+                  day.feels_like.night
+                )}°C</p>
+                <p><img alt="Weather-icon" class="forecast-night-icon" src="http://openweathermap.org/img/wn/${day.weather[0].icon.replace(
+                  "d",
+                  "n"
+                )}@2x.png" /></p>
               </div>
             </div>
           </div>
@@ -225,44 +237,120 @@ function getForecastWeather() {
 
       // Forecasts Same Day
 
-      const userTempMorning = document.getElementById("userTempMorning");
-      const userTempAfternoon = document.getElementById("userTempAfternoon");
-      const userTempEvening = document.getElementById("userTempEvening");
-      const userTempNight = document.getElementById("userTempNight");
+      function forecastSameDay() {
+        const userTempMorning = document.getElementById("userTempMorning");
+        const userTempAfternoon = document.getElementById("userTempAfternoon");
+        const userTempEvening = document.getElementById("userTempEvening");
+        const userTempNight = document.getElementById("userTempNight");
 
-      const userWeatherIconMorning = document.getElementById(
-        "userWeatherIconMorning"
-      );
-      const userWeatherIconAfternoon = document.getElementById(
-        "userWeatherIconAfternoon"
-      );
-      const userWeatherIconEvening = document.getElementById(
-        "userWeatherIconEvening"
-      );
-      const userWeatherIconNight = document.getElementById(
-        "userWeatherIconNight"
-      );
+        const userWeatherIconMorning = document.getElementById(
+          "userWeatherIconMorning"
+        );
+        const userWeatherIconAfternoon = document.getElementById(
+          "userWeatherIconAfternoon"
+        );
+        const userWeatherIconEvening = document.getElementById(
+          "userWeatherIconEvening"
+        );
+        const userWeatherIconNight = document.getElementById(
+          "userWeatherIconNight"
+        );
 
-      userTempMorning.innerText = Math.trunc(data.list[0].main.temp) + "°C";
-      userTempAfternoon.innerText = Math.trunc(data.list[2].main.temp) + "°C";
-      userTempEvening.innerText = Math.trunc(data.list[3].main.temp) + "°C";
-      userTempNight.innerText = Math.trunc(data.list[4].main.temp) + "°C";
+        userTempMorning.innerText = Math.trunc(data.list[0].main.temp) + "°C";
+        userTempAfternoon.innerText = Math.trunc(data.list[2].main.temp) + "°C";
+        userTempEvening.innerText = Math.trunc(data.list[3].main.temp) + "°C";
+        userTempNight.innerText = Math.trunc(data.list[4].main.temp) + "°C";
 
-      let IconMorning = data.list[0].weather[0].icon.replace("n", "d");
-      userWeatherIconMorning.src = `http://openweathermap.org/img/wn/${IconMorning}.png`;
-      let IconAfternoon = data.list[2].weather[0].icon.replace("n", "d");
-      userWeatherIconAfternoon.src = `http://openweathermap.org/img/wn/${IconAfternoon}.png`;
-      let IconEvening = data.list[3].weather[0].icon.replace("d", "n");
-      userWeatherIconEvening.src = `http://openweathermap.org/img/wn/${IconEvening}.png`;
-      let IconNight = data.list[4].weather[0].icon.replace("d", "n");
-      userWeatherIconNight.src = `http://openweathermap.org/img/wn/${IconNight}.png`;
+        let IconMorning = data.list[0].weather[0].icon.replace("n", "d");
+        userWeatherIconMorning.src = `http://openweathermap.org/img/wn/${IconMorning}.png`;
+        let IconAfternoon = data.list[2].weather[0].icon.replace("n", "d");
+        userWeatherIconAfternoon.src = `http://openweathermap.org/img/wn/${IconAfternoon}.png`;
+        let IconEvening = data.list[3].weather[0].icon.replace("d", "n");
+        userWeatherIconEvening.src = `http://openweathermap.org/img/wn/${IconEvening}.png`;
+        let IconNight = data.list[4].weather[0].icon.replace("d", "n");
+        userWeatherIconNight.src = `http://openweathermap.org/img/wn/${IconNight}.png`;
+      }
 
-      // 5 day forecast test
-      let test = document.querySelector("morningIcon");
-      console.log(test);
-      test.forEach((e) => {
-        test.innerHTML = "test";
-      });
+      forecastSameDay();
+
+      // 5 day forecast
+
+      function forecast5days() {
+        for (let i = 0; i < data.list.length; i++) {
+          const test = data.list[i].dt_txt.includes("12:00:00");
+          console.log(test);
+        }
+
+        let addNumber = 0;
+        let forecastMorningIcon = document.querySelectorAll(
+          "p > .forecast-morning-icon"
+        );
+        forecastMorningIcon.forEach((m) => {
+          try {
+            morningIcon = data.list[7 + addNumber].weather[0].icon.replace(
+              "n",
+              "d"
+            );
+            m.src = `http://openweathermap.org/img/wn/${morningIcon}@2x.png`;
+            addNumber += 8;
+          } catch (err) {
+            return;
+          }
+        });
+
+        addNumber = 0;
+        let forecastAfternoonIcon = document.querySelectorAll(
+          "p > .forecast-afternoon-icon"
+        );
+        forecastAfternoonIcon.forEach((a) => {
+          try {
+            afternoonIcon = data.list[10 + addNumber].weather[0].icon.replace(
+              "n",
+              "d"
+            );
+            a.src = `http://openweathermap.org/img/wn/${afternoonIcon}@2x.png`;
+            addNumber += 8;
+            console.log(a);
+          } catch (err) {
+            return;
+          }
+        });
+
+        addNumber = 0;
+        let forecastEveningIcon = document.querySelectorAll(
+          "p > .forecast-evening-icon"
+        );
+        forecastEveningIcon.forEach((e) => {
+          try {
+            eveningIcon = data.list[11 + addNumber].weather[0].icon.replace(
+              "d",
+              "n"
+            );
+            e.src = `http://openweathermap.org/img/wn/${eveningIcon}@2x.png`;
+            addNumber += 8;
+          } catch (err) {
+            return;
+          }
+        });
+
+        addNumber = 0;
+        let forecastNightIcon = document.querySelectorAll(
+          "p > .forecast-night-icon"
+        );
+        forecastNightIcon.forEach((n) => {
+          try {
+            nightIcon = data.list[12 + addNumber].weather[0].icon.replace(
+              "d",
+              "n"
+            );
+            n.src = `http://openweathermap.org/img/wn/${nightIcon}@2x.png`;
+            addNumber += 8;
+          } catch (err) {
+            return;
+          }
+        });
+      }
+      setTimeout(forecast5days, 300);
     })
     .catch((error) => {
       console.log(error);
