@@ -396,6 +396,9 @@ section {
             p:first-child {
               margin: 15px 0;
             }
+            p:last-child {
+              text-transform: capitalize;
+            }
             span {
               font-size: 1.8em;
             }

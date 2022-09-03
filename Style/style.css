@@ -647,6 +647,10 @@ section .forecast-multiple-day-container-all .forecast-multiple-day-container .f
   margin: 15px 0;
 }
 
+section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main .forecast-multiple-day-main-info_weather p:last-child {
+  text-transform: capitalize;
+}
+
 section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main .forecast-multiple-day-main-info_weather span {
   font-size: 1.8em;
 }
