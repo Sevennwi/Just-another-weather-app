@@ -1,6 +1,9 @@
 $primary-color: black;
 $secondary-color: white;
 $arrow-color: rgb(173, 173, 173);
+:root {
+  --backgroundSection: url(/Images/Weather/Clouds/clouds.jpg);
+}
 
 @mixin ordi {
   @media all and (max-width: 1200px) {

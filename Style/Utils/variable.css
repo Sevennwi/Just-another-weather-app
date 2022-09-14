@@ -1,3 +1,7 @@
+:root {
+  --backgroundSection: url(/Images/Weather/Clouds/clouds.jpg);
+}
+
 @-webkit-keyframes arrow {
   0% {
     border-right: 2px solid #adadad;

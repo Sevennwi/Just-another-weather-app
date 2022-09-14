@@ -17,6 +17,7 @@ function getPosition(position) {
   localStorage.setItem("user-long", longitude);
   getCurrentWeather();
   getForecastWeather();
+  currentAirPollution();
 }
 
 function showError(error) {
@@ -93,6 +94,8 @@ function getCurrentWeather() {
 
       getUserPosition();
 
+      // Get User Current Weather
+
       userTemp.innerText = Math.trunc(data.current.temp) + "°C";
       userWindchillTemp.innerText =
         "Feels Like:" + " " + Math.trunc(data.current.feels_like) + "°C";
@@ -130,6 +133,169 @@ function getCurrentWeather() {
         }
         userRainUvValue.innerText =
           UVvalue + " " + "(" + Math.trunc(data.current.uvi) + ")";
+      }
+
+      // Change Background dynamically
+
+      let backgroundValue = data.current.weather[0].main;
+      backgroundValue = "Drizzle"; // Remove After Use
+      console.log(backgroundValue);
+      switch (backgroundValue) {
+        case "Clouds":
+          document.documentElement.style.setProperty(
+            "--backgroundSection",
+            "url(/Images/Weather/Clouds/clouds.jpg)"
+          );
+          break;
+
+        case "Thunderstorm":
+          document.documentElement.style.setProperty(
+            "--backgroundSection",
+            "url(/Images/Weather/Thunderstorm/thunderstorm.jpg)"
+          );
+          break;
+
+        case "Drizzle":
+          document.documentElement.style.setProperty(
+            "--backgroundSection",
+            "url(/Images/Weather/Drizzle/drizzle.jpg)"
+          );
+          break;
+
+        case "Rain":
+          document.documentElement.style.setProperty(
+            "--backgroundSection",
+            "url(/Images/Weather/Rain/rain.jpg)"
+          );
+          break;
+
+        case "Snow":
+          document.documentElement.style.setProperty(
+            "--backgroundSection",
+            "linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.2)), url(/Images/Weather/Snow/snow.jpg)"
+          );
+          break;
+
+        case "Clear":
+          document.documentElement.style.setProperty(
+            "--backgroundSection",
+            "url(/Images/Weather/Clear/clear.jpg)"
+          );
+          break;
+
+        case "Tornado":
+        case "Squall":
+          document.documentElement.style.setProperty(
+            "--backgroundSection",
+            "url(/Images/Weather/Tornado/tornado.jpg)"
+          );
+          break;
+
+        case "Fog":
+        case "Mist":
+        case "Smoke":
+        case "Haze":
+          document.documentElement.style.setProperty(
+            "--backgroundSection",
+            "linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.3)), url(/Images/Weather/Fog/fog.jpg)"
+          );
+          break;
+
+        case "Sand":
+        case "Dust":
+          document.documentElement.style.setProperty(
+            "--backgroundSection",
+            "linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url(/Images/Weather/Sandstorm/sandstorm.jpg)"
+          );
+          break;
+
+        case "Ash":
+          document.documentElement.style.setProperty(
+            "--backgroundSection",
+            "url(/Images/Weather/Ash/ash.jpg)"
+          );
+          break;
+
+        default:
+          document.documentElement.style.setProperty(
+            "--backgroundSection",
+            "url(/Images/Weather/Clouds/clouds.jpg)"
+          );
+          break;
+      }
+
+      const backgroundMain = document.getElementById("backgroundMain");
+      switch (backgroundValue) {
+        case "Clouds":
+          backgroundMain.style.background =
+            "linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(/Images/Weather/Clouds/clouds-2.jpg) center";
+          backgroundMain.style.backgroundSize = "cover";
+          break;
+
+        case "Thunderstorm":
+          backgroundMain.style.background =
+            "linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(/Images/Weather/Thunderstorm/thunderstorm-2.jpg) center";
+          backgroundMain.style.backgroundSize = "cover";
+          break;
+
+        case "Drizzle":
+          backgroundMain.style.background =
+            "linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(/Images/Weather/Drizzle/drizzle-2.jpg) center";
+          backgroundMain.style.backgroundSize = "cover";
+          break;
+
+        case "Rain":
+          backgroundMain.style.background =
+            "linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(/Images/Weather/Rain/rain-2.jpg) center";
+          backgroundMain.style.backgroundSize = "cover";
+          break;
+
+        case "Snow":
+          backgroundMain.style.background =
+            "linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.2)), url(/Images/Weather/Snow/snow-2.jpg) center";
+          backgroundMain.style.backgroundSize = "cover";
+          break;
+
+        case "Clear":
+          backgroundMain.style.background =
+            "linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.15)), url(/Images/Weather/Clear/clear.jpg) center";
+          backgroundMain.style.backgroundSize = "cover";
+          break;
+
+        case "Tornado":
+        case "Squall":
+          backgroundMain.style.background =
+            "linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.2)), url(/Images/Weather/Tornado/tornado.jpg) 65%";
+          backgroundMain.style.backgroundSize = "cover";
+          break;
+
+        case "Fog":
+        case "Mist":
+        case "Smoke":
+        case "Haze":
+          backgroundMain.style.background =
+            "linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)), url(/Images/Weather/Fog/fog-2.jpg) center";
+          backgroundMain.style.backgroundSize = "cover";
+          break;
+
+        case "Sand":
+        case "Dust":
+          backgroundMain.style.background =
+            "linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.2)), url(/Images/Weather/Sandstorm/sandstorm.jpg) center";
+          backgroundMain.style.backgroundSize = "cover";
+          break;
+
+        case "Ash":
+          backgroundMain.style.background =
+            "linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(/Images/Weather/Ash/ash-2.jpg) center";
+          backgroundMain.style.backgroundSize = "cover";
+          break;
+
+        default:
+          backgroundMain.style.background =
+            "linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(/Images/Weather/Clouds/clouds-2.jpg) center";
+          backgroundMain.style.backgroundSize = "cover";
+          break;
       }
 
       // 5 days forecast
@@ -507,5 +673,18 @@ function getForecastWeather() {
     })
     .catch((error) => {
       console.log(error);
+    });
+}
+
+function currentAirPollution() {
+  let userLat = localStorage.getItem("user-lat");
+  let userLong = localStorage.getItem("user-long");
+  fetch(
+    `http://api.openweathermap.org/data/2.5/air_pollution?lat=${userLat}&lon=${userLong}&appid=${APIKey}`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      const airPollution = document.getElementById("airPollution");
+      airPollution.innerText = data.list[0].main.aqi + "/5";
     });
 }

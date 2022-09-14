@@ -10,7 +10,7 @@
   <body>
     <section>
       <h1>Just Another Weather Forecast App</h1>
-      <article class="main-weather-container">
+      <article class="main-weather-container" id="backgroundMain">
         <div class="main-weather">
           <div class="main-weather_temp">
             <p id="userTemp">16°C</p>
@@ -22,7 +22,7 @@
             <p id="currentDate">Monday 15 august 2022</p>
           </div>
           <div class="main-weather_cond">
-            <p><img id="userWeatherIcon" alt="Weather-icon" src="#" /></p>
+            <p><img id="userWeatherIcon" alt="Weather-icon" src="/Images/Icon/cloud.png" /></p>
             <p id="userWeatherDesc">Clouds</p>
           </div>
         </div>
@@ -57,6 +57,12 @@
             </p>
             <p id="userRainUvValue">2</p>
           </div>
+          <div class="weather-info">
+            <p>
+              <span><i class="fa-solid fa-smog"></i></span>Air Pollution
+            </p>
+            <p id="airPollution">2/5</p>
+          </div>
           <div class="weather-forecast">
             <div class="weather-forecast_quarter" id="sameDayMorning">
               <p>
@@ -66,7 +72,7 @@
               </p>
               <div class="weather-forecast_quarter_temp">
                 <p id="userTempMorning">15°</p>
-                <img id="userWeatherIconMorning" alt="Weather-icon" />
+                <img id="userWeatherIconMorning" alt="Weather-icon" src="/Images/Icon/cloud-2.png"/>
               </div>
             </div>
             <div class="weather-forecast_quarter" id="sameDayAfternoon">
@@ -77,7 +83,7 @@
               </p>
               <div class="weather-forecast_quarter_temp">
                 <p id="userTempAfternoon">20°</p>
-                <img id="userWeatherIconAfternoon" alt="Weather-icon" />
+                <img id="userWeatherIconAfternoon" alt="Weather-icon" src="/Images/Icon/cloud-2.png"/>
               </div>
             </div>
             <div class="weather-forecast_quarter" id="sameDayEvening">
@@ -88,7 +94,7 @@
               </p>
               <div class="weather-forecast_quarter_temp">
                 <p id="userTempEvening">12°</p>
-                <img id="userWeatherIconEvening" alt="Weather-icon" />
+                <img id="userWeatherIconEvening" alt="Weather-icon" src="/Images/Icon/cloud-2.png"/>
               </div>
             </div>
             <div class="weather-forecast_quarter" id="sameDayNight">
@@ -99,7 +105,7 @@
               </p>
               <div class="weather-forecast_quarter_temp">
                 <p id="userTempNight">10°</p>
-                <img id="userWeatherIconNight" alt="Weather-icon" />
+                <img id="userWeatherIconNight" alt="Weather-icon" src="/Images/Icon/cloud-2.png"/>
               </div>
             </div>
             <a class="group-arrow">
@@ -118,11 +124,11 @@
             <div class="forecast-multiple-day-main-info">
               <div class="forecast-multiple-day-main-info_temp">
                 <p>16°</p>
-                <p>W F 18°C</p>
+                <p>Feels Like <br> 18°C</p>
               </div>
 
               <div class="forecast-multiple-day-main-info_weather">
-                <p><img alt="Weather-icon" src="#" /></p>
+                <p><img alt="Weather-icon" src="/Images//Icon/cloud.png" /></p>
                 <p>Rain</p>
               </div>
               <div>
