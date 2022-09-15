@@ -482,13 +482,21 @@ section .main-weather-container .weather-info-container .weather-forecast_quarte
   color: white;
 }
 
+section .main-weather-container .weather-info-container .weather-forecast_quarter_p {
+  display: inherit;
+}
+
 section .main-weather-container .weather-info-container .weather-forecast_quarter_icon {
-  padding-right: 15px;
+  padding-right: 10px;
+  max-width: 35px;
+  height: 25px;
 }
 
 @media all and (max-width: 576px) {
   section .main-weather-container .weather-info-container .weather-forecast_quarter_icon {
     padding-right: 20px;
+    max-width: 45px;
+    height: 25px;
   }
 }
 

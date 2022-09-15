@@ -22,19 +22,25 @@
             <p id="currentDate">Monday 15 august 2022</p>
           </div>
           <div class="main-weather_cond">
-            <p><img id="userWeatherIcon" alt="Weather-icon" src="/Images/Icon/cloud.png" /></p>
+            <p>
+              <img
+                id="userWeatherIcon"
+                alt="Weather-icon"
+                src="/Images/Icon/cloud.png"
+              />
+            </p>
             <p id="userWeatherDesc">Clouds</p>
           </div>
         </div>
         <div class="weather-info-container">
-          <form class="city-research">
+          <form class="city-research" onsubmit="return false" id="form">
             <input
               type="text"
               name="research"
               id="research"
               placeholder="Another city"
             />
-            <button type="submit">
+            <button type="submit" onclick="getDifferentCity()">
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
           </form>
@@ -65,47 +71,75 @@
           </div>
           <div class="weather-forecast">
             <div class="weather-forecast_quarter" id="sameDayMorning">
-              <p>
-                <span class="weather-forecast_quarter_icon"
-                  ><i class="fa-regular fa-sun"></i></span
-                >Morning
+              <p class="weather-forecast_quarter_p">
+                <img
+                  src="/Images/Icon/morning.png"
+                  alt="Quarter-icon"
+                  class="weather-forecast_quarter_icon"
+                />
+                <span>Morning</span>
               </p>
               <div class="weather-forecast_quarter_temp">
                 <p id="userTempMorning">15°</p>
-                <img id="userWeatherIconMorning" alt="Weather-icon" src="/Images/Icon/cloud-2.png"/>
+                <img
+                  id="userWeatherIconMorning"
+                  alt="Weather-icon"
+                  src="/Images/Icon/cloud-2.png"
+                />
               </div>
             </div>
             <div class="weather-forecast_quarter" id="sameDayAfternoon">
-              <p>
-                <span class="weather-forecast_quarter_icon"
-                  ><i class="fa-solid fa-sun"></i></span
-                >Afternoon
+              <p class="weather-forecast_quarter_p">
+                <img
+                  src="/Images/Icon/afternoon.png"
+                  alt="Quarter-icon"
+                  class="weather-forecast_quarter_icon"
+                />
+                <span>Afternoon</span>
               </p>
               <div class="weather-forecast_quarter_temp">
                 <p id="userTempAfternoon">20°</p>
-                <img id="userWeatherIconAfternoon" alt="Weather-icon" src="/Images/Icon/cloud-2.png"/>
+                <img
+                  id="userWeatherIconAfternoon"
+                  alt="Weather-icon"
+                  src="/Images/Icon/cloud-2.png"
+                />
               </div>
             </div>
             <div class="weather-forecast_quarter" id="sameDayEvening">
-              <p>
-                <span class="weather-forecast_quarter_icon"
-                  ><i class="fa-regular fa-moon"></i></span
-                >Evening
+              <p class="weather-forecast_quarter_p">
+                <img
+                  src="/Images/Icon/evening.png"
+                  alt="Quarter-icon"
+                  class="weather-forecast_quarter_icon"
+                />
+                <span>Evening</span>
               </p>
               <div class="weather-forecast_quarter_temp">
                 <p id="userTempEvening">12°</p>
-                <img id="userWeatherIconEvening" alt="Weather-icon" src="/Images/Icon/cloud-2.png"/>
+                <img
+                  id="userWeatherIconEvening"
+                  alt="Weather-icon"
+                  src="/Images/Icon/cloud-2.png"
+                />
               </div>
             </div>
             <div class="weather-forecast_quarter" id="sameDayNight">
-              <p>
-                <span class="weather-forecast_quarter_icon"
-                  ><i class="fa-solid fa-moon"></i></span
-                >Night
+              <p class="weather-forecast_quarter_p">
+                <img
+                  src="/Images/Icon/night.png"
+                  alt="Quarter-icon"
+                  class="weather-forecast_quarter_icon"
+                />
+                <span>Night</span>
               </p>
               <div class="weather-forecast_quarter_temp">
                 <p id="userTempNight">10°</p>
-                <img id="userWeatherIconNight" alt="Weather-icon" src="/Images/Icon/cloud-2.png"/>
+                <img
+                  id="userWeatherIconNight"
+                  alt="Weather-icon"
+                  src="/Images/Icon/cloud-2.png"
+                />
               </div>
             </div>
             <a class="group-arrow">
@@ -124,7 +158,10 @@
             <div class="forecast-multiple-day-main-info">
               <div class="forecast-multiple-day-main-info_temp">
                 <p>16°</p>
-                <p>Feels Like <br> 18°C</p>
+                <p>
+                  Feels Like <br />
+                  18°C
+                </p>
               </div>
 
               <div class="forecast-multiple-day-main-info_weather">

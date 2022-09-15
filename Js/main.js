@@ -30,6 +30,43 @@ function showError(error) {
   }
 }
 
+// Geocoding Api for different cities
+
+function getDifferentCity() {
+  let userInput = document.getElementById("research").value.trim();
+  fetch(
+    `http://api.openweathermap.org/geo/1.0/direct?q=${userInput}&limit=1&appid=${APIKey}`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      if (data.length == 0) {
+        const p = document.createElement("p");
+        p.className = "geolocation-denied";
+        p.innerText = "Invalid city name, please try again";
+        p.style.position = "absolute";
+        p.style.left = "5%";
+        p.style.color = "#7b002c";
+        document.getElementById("form").after(p);
+        function remove() {
+          p.style.display = "none";
+        }
+        document.getElementById("research").addEventListener("focus", remove);
+      } else {
+        let newLatitude = data[0].lat;
+        let newLongitude = data[0].lon;
+        localStorage.setItem("user-lat", newLatitude);
+        localStorage.setItem("user-long", newLongitude);
+
+        getCurrentWeather();
+        getForecastWeather();
+        currentAirPollution();
+      }
+    });
+
+  document.getElementById("form").reset();
+}
+
 // Get Current Date
 
 let date = new Date();
@@ -67,8 +104,6 @@ function getCurrentWeather() {
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
-
       const userTemp = document.getElementById("userTemp");
       const userWindchillTemp = document.getElementById("userWindchillTemp");
       const userLocation = document.getElementById("userLocation");
@@ -108,11 +143,22 @@ function getCurrentWeather() {
       if (data.current.rain) {
         userRainUv.innerHTML =
           '<span><i class="fa-solid fa-umbrella"></i></span>Rain';
-        if (data.current.rain < 1) {
-          userRainUvValue.innerText = data.current.rain.toFixed(2) + " " + "mm";
+        if (data.current.rain["1h"] < 10) {
+          userRainUvValue.innerText =
+            data.current.rain["1h"].toFixed(2) + " " + "mm";
         } else {
           userRainUvValue.innerText =
-            Math.trunc(data.current.rain) + " " + "mm";
+            Math.trunc(data.current.rain["1h"]) + " " + "mm";
+        }
+      } else if (data.current.snow) {
+        userRainUv.innerHTML =
+          '<span><i class="fa-solid fa-snowflake"></i></span>Snow';
+        if (data.current.snow["1h"] < 10) {
+          userRainUvValue.innerText =
+            data.current.snow["1h"].toFixed(2) + " " + "mm";
+        } else {
+          userRainUvValue.innerText =
+            Math.trunc(data.current.snow["1h"]) + " " + "mm";
         }
       } else {
         userRainUv.innerHTML =
@@ -120,13 +166,13 @@ function getCurrentWeather() {
 
         let UV = data.current.uvi;
         let UVvalue = "";
-        if (UV >= 0 && UV <= 2) {
+        if (UV >= 0 && UV < 3) {
           UVvalue = "Low";
-        } else if (UV >= 3 && UV <= 5) {
+        } else if (UV >= 3 && UV < 6) {
           UVvalue = "Moderate";
-        } else if (UV >= 6 && UV <= 7) {
+        } else if (UV >= 6 && UV < 8) {
           UVvalue = "High";
-        } else if (UV >= 8 && UV <= 10) {
+        } else if (UV >= 8 && UV < 11) {
           UVvalue = "Very High";
         } else {
           UVvalue = "Extreme";
@@ -138,8 +184,7 @@ function getCurrentWeather() {
       // Change Background dynamically
 
       let backgroundValue = data.current.weather[0].main;
-      backgroundValue = "Drizzle"; // Remove After Use
-      console.log(backgroundValue);
+      //backgroundValue = "Ash";
       switch (backgroundValue) {
         case "Clouds":
           document.documentElement.style.setProperty(
@@ -258,7 +303,7 @@ function getCurrentWeather() {
 
         case "Clear":
           backgroundMain.style.background =
-            "linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.15)), url(/Images/Weather/Clear/clear.jpg) center";
+            "linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(/Images/Weather/Clear/clear-2.jpg) center";
           backgroundMain.style.backgroundSize = "cover";
           break;
 
@@ -306,22 +351,29 @@ function getCurrentWeather() {
           let rainUvVal = "";
           if (day.rain) {
             rainUv = "Rain";
-            if (day.rain < 1) {
+            if (day.rain < 10) {
               rainUvVal = day.rain.toFixed(2) + " " + "mm";
             } else {
               rainUvVal = Math.trunc(day.rain) + " " + "mm";
+            }
+          } else if (day.snow) {
+            rainUv = "Snow";
+            if (day.snow < 10) {
+              rainUvVal = day.snow.toFixed(2) + " " + "mm";
+            } else {
+              rainUvVal = Math.trunc(day.snow) + " " + "mm";
             }
           } else {
             rainUv = "UV";
             let UV = day.uvi;
             let UVvalue = "";
-            if (UV >= 0 && UV <= 2) {
+            if (UV >= 0 && UV < 3) {
               UVvalue = "Low";
-            } else if (UV >= 3 && UV <= 5) {
+            } else if (UV >= 3 && UV < 6) {
               UVvalue = "Moderate";
-            } else if (UV >= 6 && UV <= 7) {
+            } else if (UV >= 6 && UV < 8) {
               UVvalue = "High";
-            } else if (UV >= 8 && UV <= 10) {
+            } else if (UV >= 8 && UV < 11) {
               UVvalue = "Very High";
             } else {
               UVvalue = "Extreme";
@@ -427,8 +479,6 @@ function getForecastWeather() {
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
-
       // Forecasts Same Day
 
       function forecastSameDay() {
@@ -581,7 +631,6 @@ function getForecastWeather() {
 
             a.src = `http://openweathermap.org/img/wn/${afternoonIcon}@2x.png`;
             addNumber += 8;
-            console.log(a);
           } catch (err) {
             return;
           }
@@ -675,6 +724,8 @@ function getForecastWeather() {
       console.log(error);
     });
 }
+
+// Get Air Pollution
 
 function currentAirPollution() {
   let userLat = localStorage.getItem("user-lat");
