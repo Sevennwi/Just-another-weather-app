@@ -39,7 +39,6 @@ function getDifferentCity() {
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       if (data.length == 0) {
         const p = document.createElement("p");
         p.className = "geolocation-denied";
@@ -107,8 +106,6 @@ function getCurrentWeather() {
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
-
       const userTemp = document.getElementById("userTemp");
       const userWindchillTemp = document.getElementById("userWindchillTemp");
       const userLocation = document.getElementById("userLocation");
@@ -495,8 +492,6 @@ function getForecastWeather() {
     .then((response) => response.json())
     .then((data) => {
       // Forecasts Same Day
-
-      console.log(data);
 
       function forecastSameDay() {
         const userWeatherIconMorning = document.getElementById(
