@@ -52,6 +52,9 @@ function getDifferentCity() {
           p.style.display = "none";
         }
         document.getElementById("research").addEventListener("focus", remove);
+        document
+          .getElementById("research")
+          .addEventListener("keypress", remove);
       } else {
         let newLatitude = data[0].lat;
         let newLongitude = data[0].lon;
@@ -104,6 +107,8 @@ function getCurrentWeather() {
   )
     .then((response) => response.json())
     .then((data) => {
+      console.log(data);
+
       const userTemp = document.getElementById("userTemp");
       const userWindchillTemp = document.getElementById("userWindchillTemp");
       const userLocation = document.getElementById("userLocation");
@@ -180,6 +185,16 @@ function getCurrentWeather() {
         userRainUvValue.innerText =
           UVvalue + " " + "(" + Math.trunc(data.current.uvi) + ")";
       }
+
+      const userTempMorning = document.getElementById("userTempMorning");
+      const userTempAfternoon = document.getElementById("userTempAfternoon");
+      const userTempEvening = document.getElementById("userTempEvening");
+      const userTempNight = document.getElementById("userTempNight");
+
+      userTempMorning.innerText = Math.trunc(data.daily[0].temp.morn) + "°C";
+      userTempAfternoon.innerText = Math.trunc(data.daily[0].temp.day) + "°C";
+      userTempEvening.innerText = Math.trunc(data.daily[0].temp.eve) + "°C";
+      userTempNight.innerText = Math.trunc(data.daily[0].temp.night) + "°C";
 
       // Change Background dynamically
 
@@ -481,12 +496,9 @@ function getForecastWeather() {
     .then((data) => {
       // Forecasts Same Day
 
-      function forecastSameDay() {
-        const userTempMorning = document.getElementById("userTempMorning");
-        const userTempAfternoon = document.getElementById("userTempAfternoon");
-        const userTempEvening = document.getElementById("userTempEvening");
-        const userTempNight = document.getElementById("userTempNight");
+      console.log(data);
 
+      function forecastSameDay() {
         const userWeatherIconMorning = document.getElementById(
           "userWeatherIconMorning"
         );
@@ -500,26 +512,8 @@ function getForecastWeather() {
           "userWeatherIconNight"
         );
 
-        const sameDayMorning = document.getElementById("sameDayMorning");
-        const sameDayAfternoon = document.getElementById("sameDayAfternoon");
-        const sameDayEvening = document.getElementById("sameDayEvening");
-        const sameDayNight = document.getElementById("sameDayNight");
-
-        userTempMorning.innerText = Math.trunc(data.list[0].main.temp) + "°C";
-        userTempAfternoon.innerText = Math.trunc(data.list[2].main.temp) + "°C";
-        userTempEvening.innerText = Math.trunc(data.list[3].main.temp) + "°C";
-        userTempNight.innerText = Math.trunc(data.list[4].main.temp) + "°C";
-
-        if (
-          data.list[0].dt_txt.includes("06:00:00") ||
-          data.list[0].dt_txt.includes("09:00:00") ||
-          data.list[0].dt_txt.includes("12:00:00")
-        ) {
-          let IconMorning = data.list[0].weather[0].icon.replace("n", "d");
-          userWeatherIconMorning.src = `http://openweathermap.org/img/wn/${IconMorning}.png`;
-        } else {
-          sameDayMorning.style.display = "none";
-        }
+        let IconMorning = data.list[0].weather[0].icon.replace("n", "d");
+        userWeatherIconMorning.src = `http://openweathermap.org/img/wn/${IconMorning}.png`;
 
         if (
           data.list[2].dt_txt.includes("12:00:00") ||
@@ -529,29 +523,32 @@ function getForecastWeather() {
           let IconAfternoon = data.list[2].weather[0].icon.replace("n", "d");
           userWeatherIconAfternoon.src = `http://openweathermap.org/img/wn/${IconAfternoon}.png`;
         } else {
-          sameDayAfternoon.style.display = "none";
+          let IconAfternoon = data.list[1].weather[0].icon.replace("n", "d");
+          userWeatherIconAfternoon.src = `http://openweathermap.org/img/wn/${IconAfternoon}.png`;
         }
 
         if (
-          data.list[4].dt_txt.includes("18:00:00") ||
-          data.list[4].dt_txt.includes("21:00:00") ||
-          data.list[4].dt_txt.includes("00:00:00")
+          data.list[3].dt_txt.includes("18:00:00") ||
+          data.list[3].dt_txt.includes("21:00:00") ||
+          data.list[3].dt_txt.includes("00:00:00")
         ) {
-          let IconEvening = data.list[4].weather[0].icon.replace("d", "n");
+          let IconEvening = data.list[3].weather[0].icon.replace("d", "n");
           userWeatherIconEvening.src = `http://openweathermap.org/img/wn/${IconEvening}.png`;
         } else {
-          sameDayEvening.style.display = "none";
+          let IconEvening = data.list[2].weather[0].icon.replace("d", "n");
+          userWeatherIconEvening.src = `http://openweathermap.org/img/wn/${IconEvening}.png`;
         }
 
         if (
-          data.list[5].dt_txt.includes("00:00:00") ||
-          data.list[5].dt_txt.includes("03:00:00") ||
-          data.list[5].dt_txt.includes("06:00:00")
+          data.list[4].dt_txt.includes("00:00:00") ||
+          data.list[4].dt_txt.includes("03:00:00") ||
+          data.list[4].dt_txt.includes("06:00:00")
         ) {
-          let IconNight = data.list[5].weather[0].icon.replace("d", "n");
+          let IconNight = data.list[4].weather[0].icon.replace("d", "n");
           userWeatherIconNight.src = `http://openweathermap.org/img/wn/${IconNight}.png`;
         } else {
-          sameDayNight.style.display = "none";
+          let IconNight = data.list[3].weather[0].icon.replace("d", "n");
+          userWeatherIconNight.src = `http://openweathermap.org/img/wn/${IconNight}.png`;
         }
       }
 
