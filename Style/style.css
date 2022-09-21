@@ -331,6 +331,7 @@ section .main-weather-container .weather-info-container .city-research {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  position: relative;
 }
 
 section .main-weather-container .weather-info-container .city-research::after {
@@ -339,7 +340,7 @@ section .main-weather-container .weather-info-container .city-research::after {
   border-bottom: solid 1.5px white;
   position: absolute;
   left: 4%;
-  top: 11%;
+  top: 100%;
   z-index: 1;
   border-radius: 10px;
 }
@@ -400,6 +401,7 @@ section .main-weather-container .weather-info-container h3 {
   font-size: 1.6em;
   color: white;
   margin-top: 60px;
+  position: relative;
 }
 
 section .main-weather-container .weather-info-container h3::after {
@@ -408,7 +410,7 @@ section .main-weather-container .weather-info-container h3::after {
   border-bottom: solid 1.5px white;
   position: absolute;
   left: 35%;
-  top: 30%;
+  top: 150%;
   z-index: 1;
   border-radius: 10px;
 }
@@ -457,6 +459,7 @@ section .main-weather-container .weather-info-container .weather-info span {
 
 section .main-weather-container .weather-info-container .weather-forecast {
   margin-top: 20px;
+  position: relative;
 }
 
 section .main-weather-container .weather-info-container .weather-forecast::before {
@@ -465,7 +468,7 @@ section .main-weather-container .weather-info-container .weather-forecast::befor
   border-bottom: solid 1.5px white;
   position: absolute;
   left: 15%;
-  top: 80%;
+  top: -3.5%;
   z-index: 1;
   border-radius: 10px;
 }
