@@ -268,7 +268,16 @@ section {
         p:last-child {
           font-weight: bold;
         }
-        &::after {
+        span {
+          padding-right: 15px;
+          @include mobile {
+            padding-right: 20px;
+          }
+        }
+      }
+      .weather-forecast {
+        margin-top: 20px;
+        &::before {
           content: "";
           width: 70%;
           border-bottom: solid 1.5px white;
@@ -281,15 +290,6 @@ section {
             top: 60%;
           }
         }
-        span {
-          padding-right: 15px;
-          @include mobile {
-            padding-right: 20px;
-          }
-        }
-      }
-      .weather-forecast {
-        margin-top: 20px;
         &_quarter {
           display: flex;
           justify-content: space-between;

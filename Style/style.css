@@ -445,23 +445,6 @@ section .main-weather-container .weather-info-container .weather-info p:last-chi
   font-weight: bold;
 }
 
-section .main-weather-container .weather-info-container .weather-info::after {
-  content: "";
-  width: 70%;
-  border-bottom: solid 1.5px white;
-  position: absolute;
-  left: 15%;
-  top: 80%;
-  z-index: 1;
-  border-radius: 10px;
-}
-
-@media all and (max-width: 576px) {
-  section .main-weather-container .weather-info-container .weather-info::after {
-    top: 60%;
-  }
-}
-
 section .main-weather-container .weather-info-container .weather-info span {
   padding-right: 15px;
 }
@@ -474,6 +457,23 @@ section .main-weather-container .weather-info-container .weather-info span {
 
 section .main-weather-container .weather-info-container .weather-forecast {
   margin-top: 20px;
+}
+
+section .main-weather-container .weather-info-container .weather-forecast::before {
+  content: "";
+  width: 70%;
+  border-bottom: solid 1.5px white;
+  position: absolute;
+  left: 15%;
+  top: 80%;
+  z-index: 1;
+  border-radius: 10px;
+}
+
+@media all and (max-width: 576px) {
+  section .main-weather-container .weather-info-container .weather-forecast::before {
+    top: 60%;
+  }
 }
 
 section .main-weather-container .weather-info-container .weather-forecast_quarter {
