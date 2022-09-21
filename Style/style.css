@@ -759,7 +759,7 @@ section .forecast-multiple-day-container-all .forecast-multiple-day-container .f
 @media all and (max-width: 576px) {
   section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-second_div {
     margin: auto 5px;
-    font-size: 1.2em;
+    font-size: 1.15em;
   }
 }
 
