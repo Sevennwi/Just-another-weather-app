@@ -600,6 +600,7 @@ section .forecast-multiple-day-container-all {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    margin: 150px auto 40px;
   }
   section .forecast-multiple-day-container-all::-webkit-scrollbar {
     display: none;
