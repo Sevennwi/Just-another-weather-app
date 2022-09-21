@@ -486,6 +486,7 @@ section .main-weather-container .weather-info-container .weather-forecast_quarte
   padding: 10px 20px;
   font-size: 1.3em;
   color: white;
+  gap: 0 15px;
 }
 
 section .main-weather-container .weather-info-container .weather-forecast_quarter_p {
