@@ -89,7 +89,7 @@ section {
       max-width: 80%;
     }
     @include tablet {
-      max-width: 90%;
+      max-width: 85%;
     }
     @include mobile {
       flex-direction: column;
@@ -97,7 +97,10 @@ section {
       margin: 20px auto 0;
     }
     @include mobileMedium {
-      max-width: 95%;
+      max-width: 90%;
+    }
+    @include mobileSmall {
+      max-width: 100%;
     }
     .main-weather {
       display: inherit;
@@ -246,7 +249,7 @@ section {
           z-index: 1;
           border-radius: 10px;
           @include mobile {
-            top: 26%;
+            top: 24%;
           }
         }
       }
@@ -275,7 +278,7 @@ section {
           z-index: 1;
           border-radius: 10px;
           @include mobile {
-            top: 58%;
+            top: 60%;
           }
         }
         span {
@@ -369,7 +372,10 @@ section {
       }
     }
     @include mobileMedium {
-      max-width: 95%;
+      max-width: 96%;
+    }
+    @include mobileSmall {
+      max-width: 100%;
     }
     .forecast-multiple-day-container {
       display: inherit;
@@ -395,6 +401,12 @@ section {
               line-height: 1.2em;
               margin-top: 35px;
             }
+            @include mobile {
+              font-size: 1.7em;
+            }
+            @include mobileSmall {
+              font-size: 1.5em;
+            }
           }
           &_weather {
             font-size: 1.3em;
@@ -408,12 +420,26 @@ section {
             span {
               font-size: 1.8em;
             }
+            @include mobile {
+              font-size: 1.2em;
+            }
+            @include mobileSmall {
+              font-size: 1.1em;
+            }
           }
           .forecast-multiple-day-conditions {
             display: flex;
             justify-content: space-between;
             gap: 0 30px;
             font-size: 1.2em;
+            @include mobile {
+              gap: 0 10px;
+              font-size: 1.15em;
+            }
+            @include mobileSmall {
+              gap: 0 10px;
+              font-size: 1.1em;
+            }
           }
         }
       }
@@ -436,12 +462,16 @@ section {
               margin-top: -15px;
             }
           }
-          @include mobileMedium {
-            margin: auto 10px;
-          }
-          @include mobileSmall {
+          @include mobile {
             margin: auto 5px;
             font-size: 1.2em;
+          }
+          @include mobileMedium {
+            margin: auto 3px;
+          }
+          @include mobileSmall {
+            margin: auto 0;
+            font-size: 1.1em;
           }
           span {
             font-size: 1.6em;
