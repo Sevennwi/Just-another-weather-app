@@ -765,7 +765,7 @@ section .forecast-multiple-day-container-all .forecast-multiple-day-container .f
 
 @media all and (max-width: 400px) {
   section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-second_div {
-    margin: auto 3px;
+    margin: auto 2px;
   }
 }
 
