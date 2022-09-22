@@ -196,7 +196,7 @@ function getCurrentWeather() {
       // Change Background dynamically
 
       let backgroundValue = data.current.weather[0].main;
-      //backgroundValue = "Ash";
+      //backgroundValue = "Clear";
       switch (backgroundValue) {
         case "Clouds":
           document.documentElement.style.setProperty(
@@ -353,6 +353,34 @@ function getCurrentWeather() {
             "linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(/Images/Weather/Clouds/clouds-2.jpg) center";
           backgroundMain.style.backgroundSize = "cover";
           break;
+      }
+
+      // Clear Sky and Clouds during night
+
+      if (
+        data.current.weather[0].icon.includes("n") &&
+        data.current.weather[0].main == "Clouds"
+      ) {
+        document.documentElement.style.setProperty(
+          "--backgroundSection",
+          "url(/Images/Weather/Clouds/clouds-night.jpg)"
+        );
+        backgroundMain.style.background =
+          "linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(/Images/Weather/Clouds/clouds-night-2.jpg) center";
+        backgroundMain.style.backgroundSize = "cover";
+      }
+
+      if (
+        data.current.weather[0].icon.includes("n") &&
+        data.current.weather[0].main == "Clear"
+      ) {
+        document.documentElement.style.setProperty(
+          "--backgroundSection",
+          "url(/Images/Weather/Clear/clear-night.jpg)"
+        );
+        backgroundMain.style.background =
+          "linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(/Images/Weather/Clear/clear-night-2.jpg) center";
+        backgroundMain.style.backgroundSize = "cover";
       }
 
       // 5 days forecast

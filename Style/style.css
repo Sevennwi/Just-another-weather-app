@@ -119,6 +119,13 @@ section:before {
           transform: scale(1.2);
 }
 
+@media all and (max-width: 576px) {
+  section:before {
+    -webkit-transform: scale(1.4);
+            transform: scale(1.4);
+  }
+}
+
 section .main-weather-container {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0.05))), url(/Images/Weather/Clouds/clouds-2.jpg) center;
   background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(/Images/Weather/Clouds/clouds-2.jpg) center;
@@ -143,12 +150,13 @@ section .main-weather-container {
 
 @media all and (max-width: 900px) {
   section .main-weather-container {
-    max-width: 85%;
+    max-width: 90%;
   }
 }
 
 @media all and (max-width: 576px) {
   section .main-weather-container {
+    max-width: 85%;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -345,12 +353,6 @@ section .main-weather-container .weather-info-container .city-research::after {
   border-radius: 10px;
 }
 
-@media all and (max-width: 576px) {
-  section .main-weather-container .weather-info-container .city-research::after {
-    top: 9%;
-  }
-}
-
 section .main-weather-container .weather-info-container .city-research input {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -417,12 +419,6 @@ section .main-weather-container .weather-info-container h3::after {
   border-radius: 10px;
 }
 
-@media all and (max-width: 576px) {
-  section .main-weather-container .weather-info-container h3::after {
-    top: 24%;
-  }
-}
-
 section .main-weather-container .weather-info-container p {
   margin: 10px 0;
 }
@@ -473,12 +469,6 @@ section .main-weather-container .weather-info-container .weather-forecast::befor
   top: -3.5%;
   z-index: 1;
   border-radius: 10px;
-}
-
-@media all and (max-width: 576px) {
-  section .main-weather-container .weather-info-container .weather-forecast::before {
-    top: 60%;
-  }
 }
 
 section .main-weather-container .weather-info-container .weather-forecast_quarter {

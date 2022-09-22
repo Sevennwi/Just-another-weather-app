@@ -74,6 +74,9 @@ section {
     height: 100vh;
     filter: blur(40px);
     transform: scale(1.2);
+    @include mobile {
+      transform: scale(1.4);
+    }
   }
   .main-weather-container {
     background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
@@ -89,9 +92,10 @@ section {
       max-width: 80%;
     }
     @include tablet {
-      max-width: 85%;
+      max-width: 90%;
     }
     @include mobile {
+      max-width: 85%;
       flex-direction: column;
       height: 100%;
       margin: 20px auto 0;
@@ -203,9 +207,6 @@ section {
           top: 100%;
           z-index: 1;
           border-radius: 10px;
-          @include mobile {
-            top: 9%;
-          }
         }
         input {
           display: flex;
@@ -252,9 +253,6 @@ section {
           top: 150%;
           z-index: 1;
           border-radius: 10px;
-          @include mobile {
-            top: 24%;
-          }
         }
       }
       p {
@@ -291,9 +289,6 @@ section {
           top: -3.5%;
           z-index: 1;
           border-radius: 10px;
-          @include mobile {
-            top: 60%;
-          }
         }
         &_quarter {
           display: flex;
