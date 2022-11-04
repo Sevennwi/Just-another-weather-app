@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
 :root {
   --backgroundSection: url(/Images/Weather/Clouds/clouds.jpg);
 }
@@ -80,11 +81,13 @@ input:-webkit-autofill:active {
 
 body {
   margin: 0;
+  font-family: "Times New Roman", Times, serif;
 }
 
 h1 {
   text-align: center;
-  font-size: 2.5em;
+  font-family: "Courgette", cursive;
+  font-size: 2.7em;
   padding: 20px 0;
   color: white;
 }
