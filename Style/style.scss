@@ -112,14 +112,23 @@ section {
     .main-weather {
       display: inherit;
       align-items: flex-end;
-      margin: 0 auto;
+      align-content: center;
+      margin: 0 auto 30px;
       @include tablet {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        margin: 0 auto;
       }
       @include mobile {
         padding: 50px 0;
+      }
+      .main-weather-align {
+        display: inherit;
+        align-items: center;
+        @include tablet {
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 40px;
+        }
       }
       &_temp {
         font-size: 1.5em;
@@ -149,6 +158,10 @@ section {
             font-size: 1.8em;
           }
         }
+        .hours {
+          font-size: 1.6em;
+          padding-top: 10px;
+        }
       }
       &_cond {
         font-size: 1.6em;
@@ -172,13 +185,10 @@ section {
       }
       p {
         padding: 0 25px;
+        margin: 0;
         text-align: center;
-        margin: 0 0 40px;
         color: white;
         line-height: 1.2em;
-        @include mobile {
-          margin: 0 0 50px;
-        }
       }
     }
     .weather-info-container {

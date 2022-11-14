@@ -3,6 +3,7 @@ const article = document.querySelector(".main-weather-container");
 const weatherForecast = document.getElementById("weatherForecast");
 
 const currentDate = document.getElementById("currentDate");
+const currentHours = document.getElementById("currentHours");
 
 // Get user location
 
@@ -44,7 +45,7 @@ function getDifferentCity() {
         p.className = "geolocation-denied";
         p.innerText = "Invalid city name, please try again";
         p.style.position = "absolute";
-        p.style.left = "5%";
+        p.style.marginLeft = "10px";
         p.style.color = "#7b002c";
         document.getElementById("form").after(p);
         function remove() {
@@ -69,33 +70,6 @@ function getDifferentCity() {
   document.getElementById("form").reset();
 }
 
-// Get Current Date
-
-let date = new Date();
-date = new Intl.DateTimeFormat("en-GB", {
-  dateStyle: "full",
-})
-  .format(date)
-  .replace(",", " ");
-currentDate.innerText = date;
-
-// get date 5 day
-
-let forecastDateArray = [];
-
-for (let i = 1; i < 6; i++) {
-  forecastDate = new Date();
-  forecastDate.setDate(forecastDate.getDate() + i);
-  forecastDate = new Intl.DateTimeFormat("en-GB", {
-    weekday: "long",
-    month: "long",
-    day: "numeric",
-  })
-    .format(forecastDate)
-    .replace(",", " ");
-  forecastDateArray.push(forecastDate);
-}
-
 // Get Current Weather
 
 function getCurrentWeather() {
@@ -115,6 +89,56 @@ function getCurrentWeather() {
       const userWindSpeed = document.getElementById("userWindSpeed");
       const userRainUv = document.getElementById("userRainUv");
       const userRainUvValue = document.getElementById("userRainUvValue");
+
+      // get Timezone and date
+      let currentTimeZone = data.timezone;
+
+      function getCurrentDate() {
+        let date = new Date();
+        date = new Intl.DateTimeFormat("en-GB", {
+          timeZone: currentTimeZone,
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          weekday: "long",
+        })
+          .format(date)
+          .replace(",", " ");
+        currentDate.innerText = date;
+
+        function updateHours() {
+          let hours = new Date();
+          hours = new Intl.DateTimeFormat("en-GB", {
+            timeZone: currentTimeZone,
+            hour: "numeric",
+            minute: "numeric",
+          })
+            .format(hours)
+            .replace(",", " ");
+          currentHours.innerText = hours;
+        }
+        updateHours();
+        setInterval(updateHours, 20000);
+      }
+      getCurrentDate();
+
+      // get date 5 day
+
+      let forecastDateArray = [];
+
+      for (let i = 1; i < 6; i++) {
+        forecastDate = new Date();
+        forecastDate.setDate(forecastDate.getDate() + i);
+        forecastDate = new Intl.DateTimeFormat("en-GB", {
+          timeZone: currentTimeZone,
+          weekday: "long",
+          month: "long",
+          day: "numeric",
+        })
+          .format(forecastDate)
+          .replace(",", " ");
+        forecastDateArray.push(forecastDate);
+      }
 
       function getUserPosition() {
         fetch(
