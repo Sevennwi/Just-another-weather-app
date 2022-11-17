@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,24 +8,24 @@
       http-equiv="Content-Security-Policy"
       content="upgrade-insecure-requests"
     />
-    <title>Weather API</title>
+    <title>Application météo</title>
     <link rel="icon" type="image/png" href="/Images/Icon/favicon.png" />
     <link rel="stylesheet" href="/Style/style.css" />
   </head>
   <body>
     <section>
-      <h1>Just Another Weather Forecast App</h1>
+      <h1>Juste Une Autre Application Météo</h1>
       <article class="main-weather-container" id="backgroundMain">
         <div class="main-weather">
           <div class="main-weather-align">
             <div class="main-weather_temp">
               <p id="userTemp">16°C</p>
-              <p id="userWindchillTemp">Feels Like 18°C</p>
+              <p id="userWindchillTempFr">Ressentie 18°C</p>
             </div>
 
             <div class="main-weather_loc">
-              <p id="userLocation">City</p>
-              <p id="currentDate">Monday 15 august 2022</p>
+              <p id="userLocation">Ville</p>
+              <p id="currentDate">Lundi 15 août 2022</p>
               <p id="currentHours" class="hours">17:00</p>
             </div>
             <div class="main-weather_cond">
@@ -36,7 +36,7 @@
                   src="/Images/Icon/cloud.png"
                 />
               </p>
-              <p id="userWeatherDesc">Clouds</p>
+              <p id="userWeatherDesc">Nuage</p>
             </div>
           </div>
         </div>
@@ -46,34 +46,34 @@
               type="text"
               name="research"
               id="research"
-              placeholder="Another city"
+              placeholder="Ville différente"
             />
             <button type="submit" onclick="getDifferentCity()">
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
           </form>
-          <h3>Weather details</h3>
+          <h3>Paramètres météo</h3>
           <div class="weather-info">
             <p>
-              <span><i class="fa-solid fa-droplet"></i></span>Humidity
+              <span><i class="fa-solid fa-droplet"></i></span>Humidité
             </p>
             <p id="userHumidity">80%</p>
           </div>
           <div class="weather-info">
             <p>
-              <span><i class="fa-solid fa-wind"></i></span>Wind
+              <span><i class="fa-solid fa-wind"></i></span>Vent
             </p>
             <p id="userWindSpeed">1.5 km/h</p>
           </div>
           <div class="weather-info">
             <p id="userRainUv">
-              <span><i class="fa-solid fa-umbrella-beach"></i></span>UV index
+              <span><i class="fa-solid fa-umbrella-beach"></i></span>index UV
             </p>
             <p id="userRainUvValue">2</p>
           </div>
           <div class="weather-info">
             <p>
-              <span><i class="fa-solid fa-smog"></i></span>Air Pollution
+              <span><i class="fa-solid fa-smog"></i></span>Pollution de l'air
             </p>
             <p id="airPollution">2/5</p>
           </div>
@@ -85,7 +85,7 @@
                   alt="Quarter-icon"
                   class="weather-forecast_quarter_icon"
                 />
-                <span>Morning</span>
+                <span>Matin</span>
               </p>
               <div class="weather-forecast_quarter_temp">
                 <p id="userTempMorning">15°</p>
@@ -103,7 +103,7 @@
                   alt="Quarter-icon"
                   class="weather-forecast_quarter_icon"
                 />
-                <span>Afternoon</span>
+                <span>Après-midi</span>
               </p>
               <div class="weather-forecast_quarter_temp">
                 <p id="userTempAfternoon">20°</p>
@@ -121,7 +121,7 @@
                   alt="Quarter-icon"
                   class="weather-forecast_quarter_icon"
                 />
-                <span>Evening</span>
+                <span>Soir</span>
               </p>
               <div class="weather-forecast_quarter_temp">
                 <p id="userTempEvening">12°</p>
@@ -139,7 +139,7 @@
                   alt="Quarter-icon"
                   class="weather-forecast_quarter_icon"
                 />
-                <span>Night</span>
+                <span>Nuit</span>
               </p>
               <div class="weather-forecast_quarter_temp">
                 <p id="userTempNight">10°</p>
@@ -162,60 +162,60 @@
         <!-- 1st day-->
         <div class="forecast-multiple-day-container">
           <div class="forecast-multiple-day-main">
-            <h3>Thursday 16 august</h3>
+            <h3>Mardi 16 août</h3>
             <div class="forecast-multiple-day-main-info">
               <div class="forecast-multiple-day-main-info_temp">
                 <p>16°</p>
                 <p>
-                  Feels Like <br />
+                  Ressentie <br />
                   18°C
                 </p>
               </div>
 
               <div class="forecast-multiple-day-main-info_weather">
                 <p><img alt="Weather-icon" src="/Images//Icon/cloud.png" /></p>
-                <p>Rain</p>
+                <p>Pluie</p>
               </div>
               <div>
                 <div class="forecast-multiple-day-conditions">
-                  <p>Humidity</p>
+                  <p>Humidité</p>
                   <p>100%</p>
                 </div>
                 <div class="forecast-multiple-day-conditions">
-                  <p>Wind</p>
+                  <p>Vent</p>
                   <p>5km/h</p>
                 </div>
                 <div class="forecast-multiple-day-conditions">
-                  <p>Visibility</p>
-                  <p>500km</p>
+                  <p>Index UV</p>
+                  <p>1/5</p>
                 </div>
               </div>
             </div>
           </div>
           <div class="forecast-multiple-day-second">
             <div class="forecast-multiple-day-second_div">
-              <p>Morning</p>
+              <p>Matin</p>
               <p>16°</p>
               <p>
                 <span><i class="fa-solid fa-cloud"></i></span>
               </p>
             </div>
             <div class="forecast-multiple-day-second_div">
-              <p>Afternoon</p>
+              <p>Après-midi</p>
               <p>16°</p>
               <p>
                 <span><i class="fa-solid fa-cloud"></i></span>
               </p>
             </div>
             <div class="forecast-multiple-day-second_div">
-              <p>Evening</p>
+              <p>Soir</p>
               <p>16°</p>
               <p>
                 <span><i class="fa-solid fa-cloud"></i></span>
               </p>
             </div>
             <div class="forecast-multiple-day-second_div">
-              <p>Night</p>
+              <p>Nuit</p>
               <p>16°</p>
               <p>
                 <span><i class="fa-solid fa-cloud"></i></span>
@@ -228,14 +228,14 @@
     </section>
     <footer>
       <p class="signature">
-        2022 | Weather App by
+        2022 | Application Météo par
         <a href="https://killianbrunet.com" target="_blank">Killian</a>
       </p>
       <div class="flag">
-        <a href="/Lang/fr.html" class="flag_french"
-          ><span>French:</span>
+        <a href="../index.html" class="flag_french"
+          ><span>Anglais:</span>
           <img
-            src="/Images/Icon/france.png"
+            src="/Images/Icon/english.png"
             alt="Switch Language"
             class="flag_french_img"
         /></a>
@@ -246,6 +246,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="/Js/Lang-switch.js"></script>
-    <script src="/Js/main.js"></script>
+    <script src="/Js/Fr.js"></script>
   </body>
 </html>

@@ -186,14 +186,15 @@ section .main-weather-container .main-weather {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  -ms-flex-line-pack: center;
-      align-content: center;
   margin: 0 auto 30px;
 }
 
 @media all and (max-width: 900px) {
   section .main-weather-container .main-weather {
     margin: 0 auto;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 }
 
@@ -274,6 +275,10 @@ section .main-weather-container .main-weather_loc p:first-child {
   section .main-weather-container .main-weather_loc p:first-child {
     font-size: 1.8em;
   }
+}
+
+section .main-weather-container .main-weather_loc #currentDate {
+  text-transform: capitalize;
 }
 
 section .main-weather-container .main-weather_loc .hours {
@@ -411,6 +416,8 @@ section .main-weather-container .weather-info-container .city-research button {
   padding: 20px 25px;
   border-radius: 0 5px 0 0;
   font-size: 1.1em;
+  -webkit-transition: opacity 0.1s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
   cursor: pointer;
 }
 
@@ -651,6 +658,7 @@ section .forecast-multiple-day-container-all .forecast-multiple-day-container .f
 section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main h3 {
   text-align: center;
   font-size: 1.4em;
+  text-transform: capitalize;
 }
 
 section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main .forecast-multiple-day-main-info {
@@ -758,6 +766,10 @@ section .forecast-multiple-day-container-all .forecast-multiple-day-container .f
   margin: auto 15px;
 }
 
+section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-second_div p:first-child {
+  white-space: nowrap;
+}
+
 section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-second_div_feels {
   font-size: 0.8em;
 }
@@ -795,20 +807,99 @@ section .forecast-multiple-day-container-all .forecast-multiple-day-container .f
   font-size: 1.6em;
 }
 
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media all and (max-width: 576px) {
+  footer {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+
 footer .signature {
+  margin-left: calc(50% - 100px);
   text-align: center;
   color: white;
   font-size: 1.1em;
 }
 
+@media all and (max-width: 576px) {
+  footer .signature {
+    margin-left: 0;
+  }
+}
+
 footer .signature a {
   text-decoration: none;
   color: lightblue;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
 }
 
 footer .signature a:hover {
   color: white;
-  -webkit-transition: color 0.1s;
-  transition: color 0.1s;
+}
+
+footer .flag {
+  margin-left: auto;
+}
+
+@media all and (max-width: 576px) {
+  footer .flag {
+    margin-left: 0;
+  }
+}
+
+footer .flag_french {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+  color: white;
+  padding: 5px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  margin-right: 10px;
+}
+
+@media all and (max-width: 576px) {
+  footer .flag_french {
+    margin-right: 0;
+  }
+}
+
+footer .flag_french:hover {
+  color: lightblue;
+  opacity: 0.9;
+}
+
+footer .flag_french:hover .flag_french_img {
+  opacity: 0.8;
+}
+
+footer .flag_french span {
+  font-size: 1.15em;
+}
+
+footer .flag_french_img {
+  width: 35px;
+  margin-left: 10px;
 }
 /*# sourceMappingURL=style.css.map */
