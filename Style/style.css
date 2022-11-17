@@ -675,6 +675,7 @@ section .forecast-multiple-day-container-all .forecast-multiple-day-container .f
 section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main .forecast-multiple-day-main-info_temp {
   font-size: 1.8em;
   margin-top: 25px;
+  text-align: center;
 }
 
 section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main .forecast-multiple-day-main-info_temp p:last-child {
