@@ -436,15 +436,15 @@ function getCurrentWeather() {
             let UV = day.uvi;
             let UVvalue = "";
             if (UV >= 0 && UV < 3) {
-              UVvalue = "Low";
+              UVvalue = "Bas";
             } else if (UV >= 3 && UV < 6) {
-              UVvalue = "Moderate";
+              UVvalue = "Modéré";
             } else if (UV >= 6 && UV < 8) {
-              UVvalue = "High";
+              UVvalue = "Élevé";
             } else if (UV >= 8 && UV < 11) {
-              UVvalue = "Very High";
+              UVvalue = "Très élevé";
             } else {
-              UVvalue = "Extreme";
+              UVvalue = "Extrême";
             }
             rainUvVal = UVvalue + " " + "(" + Math.trunc(day.uvi) + ")";
           }
