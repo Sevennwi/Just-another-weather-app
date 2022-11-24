@@ -92,6 +92,7 @@ function getCurrentWeather() {
 
       // get Timezone and date
       let currentTimeZone = data.timezone;
+      localStorage.setItem("timezone", currentTimeZone);
 
       function getCurrentDate() {
         let date = new Date();
@@ -107,9 +108,10 @@ function getCurrentWeather() {
         currentDate.innerText = date;
 
         function updateHours() {
+          let timezone = localStorage.getItem("timezone");
           let hours = new Date();
           hours = new Intl.DateTimeFormat("en-GB", {
-            timeZone: currentTimeZone,
+            timeZone: timezone,
             hour: "numeric",
             minute: "numeric",
           })
@@ -460,7 +462,7 @@ function getCurrentWeather() {
                   }@2x.png" /></p>
                   <p>${day.weather[0].description}</p>
                 </div>
-                <div>
+                <div class="forecast-multiple-day-main-info_conditions">
                   <div class="forecast-multiple-day-conditions">
                     <p>Humidity</p>
                     <p>${day.humidity}%</p>

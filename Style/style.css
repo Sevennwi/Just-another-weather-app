@@ -281,6 +281,12 @@ section .main-weather-container .main-weather_loc #currentDate {
   text-transform: capitalize;
 }
 
+@media all and (max-width: 576px) {
+  section .main-weather-container .main-weather_loc #currentDate {
+    padding: 5px 0;
+  }
+}
+
 section .main-weather-container .main-weather_loc .hours {
   font-size: 1.6em;
   padding-top: 10px;
@@ -678,6 +684,12 @@ section .forecast-multiple-day-container-all .forecast-multiple-day-container .f
   text-align: center;
 }
 
+@media all and (max-width: 576px) {
+  section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main .forecast-multiple-day-main-info_temp {
+    margin-left: 5px;
+  }
+}
+
 section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main .forecast-multiple-day-main-info_temp p:last-child {
   font-size: 0.7em;
   text-align: center;
@@ -687,13 +699,13 @@ section .forecast-multiple-day-container-all .forecast-multiple-day-container .f
 
 @media all and (max-width: 576px) {
   section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main .forecast-multiple-day-main-info_temp {
-    font-size: 1.7em;
+    font-size: 1.5em;
   }
 }
 
 @media all and (max-width: 350px) {
   section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main .forecast-multiple-day-main-info_temp {
-    font-size: 1.5em;
+    font-size: 1.4em;
   }
 }
 
@@ -710,20 +722,38 @@ section .forecast-multiple-day-container-all .forecast-multiple-day-container .f
   text-transform: capitalize;
 }
 
+@media all and (max-width: 576px) {
+  section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main .forecast-multiple-day-main-info_weather p:last-child {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+}
+
+@media all and (max-width: 400px) {
+  section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main .forecast-multiple-day-main-info_weather p:last-child {
+    margin-bottom: 22px;
+  }
+}
+
 section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main .forecast-multiple-day-main-info_weather span {
   font-size: 1.8em;
 }
 
 @media all and (max-width: 576px) {
   section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main .forecast-multiple-day-main-info_weather {
+    max-width: 140px;
     font-size: 1.2em;
   }
 }
 
-@media all and (max-width: 350px) {
+@media all and (max-width: 400px) {
   section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main .forecast-multiple-day-main-info_weather {
     font-size: 1.1em;
   }
+}
+
+section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main .forecast-multiple-day-main-info_conditions {
+  margin-right: 5px;
 }
 
 section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main .forecast-multiple-day-main-info .forecast-multiple-day-conditions {
@@ -744,7 +774,7 @@ section .forecast-multiple-day-container-all .forecast-multiple-day-container .f
   }
 }
 
-@media all and (max-width: 350px) {
+@media all and (max-width: 400px) {
   section .forecast-multiple-day-container-all .forecast-multiple-day-container .forecast-multiple-day-main .forecast-multiple-day-main-info .forecast-multiple-day-conditions {
     gap: 0 10px;
     font-size: 1.1em;
@@ -828,6 +858,7 @@ footer {
   footer {
     -ms-flex-pack: distribute;
         justify-content: space-around;
+    gap: 20px;
   }
 }
 
@@ -840,7 +871,13 @@ footer .signature {
 
 @media all and (max-width: 576px) {
   footer .signature {
-    margin-left: 0;
+    margin-left: 10px;
+  }
+}
+
+@media all and (max-width: 400px) {
+  footer .signature {
+    font-size: 1em;
   }
 }
 
@@ -862,6 +899,7 @@ footer .flag {
 @media all and (max-width: 576px) {
   footer .flag {
     margin-left: 0;
+    margin-right: 10px;
   }
 }
 
@@ -896,7 +934,13 @@ footer .flag_french:hover .flag_french_img {
 }
 
 footer .flag_french span {
-  font-size: 1.15em;
+  font-size: 1.1em;
+}
+
+@media all and (max-width: 400px) {
+  footer .flag_french span {
+    font-size: 1em;
+  }
 }
 
 footer .flag_french_img {

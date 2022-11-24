@@ -160,6 +160,9 @@ section {
         }
         #currentDate {
           text-transform: capitalize;
+          @include mobile {
+            padding: 5px 0;
+          }
         }
         .hours {
           font-size: 1.6em;
@@ -416,6 +419,9 @@ section {
             font-size: 1.8em;
             margin-top: 25px;
             text-align: center;
+            @include mobile {
+              margin-left: 5px;
+            }
             p:last-child {
               font-size: 0.7em;
               text-align: center;
@@ -423,10 +429,10 @@ section {
               margin-top: 35px;
             }
             @include mobile {
-              font-size: 1.7em;
+              font-size: 1.5em;
             }
             @include mobileSmall {
-              font-size: 1.5em;
+              font-size: 1.4em;
             }
           }
           &_weather {
@@ -437,16 +443,27 @@ section {
             }
             p:last-child {
               text-transform: capitalize;
+              @include mobile {
+                margin-top: 0;
+                margin-bottom: 20px;
+              }
+              @include mobileMedium {
+                margin-bottom: 22px;
+              }
             }
             span {
               font-size: 1.8em;
             }
             @include mobile {
+              max-width: 140px;
               font-size: 1.2em;
             }
-            @include mobileSmall {
+            @include mobileMedium {
               font-size: 1.1em;
             }
+          }
+          &_conditions {
+            margin-right: 5px;
           }
           .forecast-multiple-day-conditions {
             display: flex;
@@ -457,7 +474,7 @@ section {
               gap: 0 10px;
               font-size: 1.15em;
             }
-            @include mobileSmall {
+            @include mobileMedium {
               gap: 0 10px;
               font-size: 1.1em;
             }
@@ -513,6 +530,7 @@ footer {
   align-items: center;
   @include mobile {
     justify-content: space-around;
+    gap: 20px;
   }
   .signature {
     margin-left: calc(50% - 100px);
@@ -520,7 +538,10 @@ footer {
     color: white;
     font-size: 1.1em;
     @include mobile {
-      margin-left: 0;
+      margin-left: 10px;
+    }
+    @include mobileMedium {
+      font-size: 1em;
     }
     a {
       text-decoration: none;
@@ -535,6 +556,7 @@ footer {
     margin-left: auto;
     @include mobile {
       margin-left: 0;
+      margin-right: 10px;
     }
     &_french {
       display: flex;
@@ -555,7 +577,10 @@ footer {
         }
       }
       span {
-        font-size: 1.15em;
+        font-size: 1.1em;
+        @include mobileMedium {
+          font-size: 1em;
+        }
       }
       &_img {
         width: 35px;
