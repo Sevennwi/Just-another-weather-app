@@ -640,12 +640,6 @@ section .forecast-multiple-day-container-all {
   }
 }
 
-@media all and (max-width: 350px) {
-  section .forecast-multiple-day-container-all {
-    max-width: 100%;
-  }
-}
-
 section .forecast-multiple-day-container-all .forecast-multiple-day-container {
   display: inherit;
   -webkit-box-orient: vertical;

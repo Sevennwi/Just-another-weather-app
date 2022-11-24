@@ -396,9 +396,6 @@ section {
     @include mobileMedium {
       max-width: 100%;
     }
-    @include mobileSmall {
-      max-width: 100%;
-    }
     .forecast-multiple-day-container {
       display: inherit;
       flex-direction: column;
