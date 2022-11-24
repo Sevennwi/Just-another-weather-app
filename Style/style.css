@@ -171,7 +171,7 @@ section .main-weather-container {
 
 @media all and (max-width: 400px) {
   section .main-weather-container {
-    max-width: 90%;
+    max-width: 95%;
   }
 }
 
@@ -636,7 +636,7 @@ section .forecast-multiple-day-container-all {
 
 @media all and (max-width: 400px) {
   section .forecast-multiple-day-container-all {
-    max-width: 96%;
+    max-width: 97%;
   }
 }
 
